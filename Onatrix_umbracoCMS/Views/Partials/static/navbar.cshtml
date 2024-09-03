@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var logoImg = settings?.Value<IPublishedContent>("siteLogoType").Url() ?? "";
+}
+
+ <section class="navbar">
+                <div class="container">
+                    <a class="logo-img" href="/"><img src="@logoImg" alt="Onatrix logo image"></a>
+
+                    <button class="btn-menu">
+                        <i class="fa-regular fa-bars"></i>
+                    </button>
+
+                    <nav class="mobile-menu">
+                        <ul>
+                            <li><a href="/about" class="nav-link">About</a></li>
+                            <li><a href="/services" class="nav-link">Services</a></li>
+                            <li><a href="/projects" class="nav-link">Projects</a></li>
+                            <li><a href="/contact" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="menu">
+                        <a href="/about" class="nav-link">About</a>
+                        <a href="/services" class="nav-link">Services</a>
+                        <a href="/projects" class="nav-link">Projects</a>
+                        <a href="/contact" class="nav-link">Contact</a>
+                    </nav>
+                    <div class="search">
+                        <i class="fa-regular fa-magnifying-glass"></i>
+                    </div>
+                </div>
+</section>

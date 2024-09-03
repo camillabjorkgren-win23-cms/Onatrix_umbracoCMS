@@ -1,11 +1,20 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
 @{
     Layout = null;
-    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix - Financial Solutions for Your Business" : "Onatrix - Financial Solutions for Your Business";
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
+    var siteTagline = settings?.Value<string>("siteTagline") ?? "Financial Solutions";
+
+
+    var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} | {siteName} - {siteTagline}" : $"{siteName} - {siteTagline}";
 }
 <!DOCTYPE html>
-<html lang="sv-se">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,58 +27,15 @@
 <body>
     <div class="wrapper">
         <header>
-            <section class="topbar">
-                <div class="container">
-                    <div class="address">Klarabergsviadukten 90, 111 64 Stockholm</div>
-                    <div class="social-media">
-                        <a href="www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="www.twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="www.linkedin.com"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </section>
-            <section class="navbar">
-                <div class="container">
-                    <a class="logo-img" href="./images/logo/OnatrixlogoBrand.svg"><img src="" alt="Onatrix logo image"></a>
-
-                    <button class="btn-menu">
-                        <i class="fa-regular fa-bars"></i>
-                    </button>
-
-                    <nav class="mobile-menu">
-                        <ul>
-                            <li><a href="/about" class="nav-link">About</a></li>
-                            <li><a href="/services" class="nav-link">Services</a></li>
-                            <li><a href="/projects" class="nav-link">Projects</a></li>
-                            <li><a href="/contact" class="nav-link">Contact</a></li>
-                        </ul>
-                    </nav>
-
-                    <nav class="menu">
-                        <a href="/about" class="nav-link">About</a>
-                        <a href="/services" class="nav-link">Services</a>
-                        <a href="/projects" class="nav-link">Projects</a>
-                        <a href="/contact" class="nav-link">Contact</a>
-                    </nav>
-                    <div class="search">
-                        <i class="fa-regular fa-magnifying-glass"></i>
-                    </div>
-                </div>
-            </section>
+            @await Html.PartialAsync("partials/static/topbar.cshtml")
+            @await Html.PartialAsync("partials/static/navbar.cshtml")
         </header>
 
         <main>
             @RenderBody()
         </main>
 
-        <footer>
-            <div class="container">
-                <p class="copyright">
-                    © Onatrix. All Rights Reserved.Credits to
-                    <span class="theme"> Themesflat.</span>
-                </p>
-            </div>
-        </footer>
+        @await Html.PartialAsync("partials/static/footer.cshtml")
     </div>
 
     <script src="/scripts/main.js"></script>
