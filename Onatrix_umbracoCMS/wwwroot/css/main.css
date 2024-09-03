@@ -416,18 +416,18 @@ footer .container .theme {
   padding-bottom: 25px;
 }
 
-#why-choose-us .container {
-  position: relative;
-  padding: 100px 0px 0px 0px;
-}
-#why-choose-us .container .background-img {
+#why-choose-us .background-img {
   width: 100%;
 }
-#why-choose-us .container .background-img img {
+#why-choose-us .background-img img {
   width: 100%;
   position: absolute;
   z-index: -1;
   top: 72px;
+}
+#why-choose-us .container {
+  position: relative;
+  padding: 100px 0px 0px 0px;
 }
 #why-choose-us .container .headline {
   font-weight: 700;
@@ -460,16 +460,15 @@ footer .container .theme {
 #why-choose-us .container .content .button {
   margin-bottom: 3rem;
 }
-#why-choose-us .container .team-img {
+#why-choose-us .container .image-container {
   width: 100%;
 }
-#why-choose-us .container .team-img img {
+#why-choose-us .container .image-container img {
   width: 100%;
   margin: 0 auto;
 }
 
 #success-story {
-  background-color: var(--color-primary);
   max-width: 1920px;
   margin: 0 auto;
   padding: 100px 0 50px 0;
@@ -661,7 +660,7 @@ footer .container .theme {
   max-width: 1920px;
   box-shadow: -12px 4px -18px -2px rgba(19, 16, 34, 0.06), 0px 4.8px 24.4px -6px rgba(19, 16, 34, 0.1);
   background-color: var(--color-gray);
-  position: -1;
+  z-index: -1;
   margin: 0 auto;
 }
 #about-header .background-container {
@@ -671,21 +670,12 @@ footer .container .theme {
   height: 100%;
   width: 100%;
 }
-#about-header .background-container .background-img1 {
+#about-header .background-container .background-img {
   z-index: 1;
   height: 100%;
   width: 100%;
 }
-#about-header .background-container .background-img1 #img1 {
-  width: 100%;
-  height: 100%;
-}
-#about-header .background-container .background-img2 {
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-}
-#about-header .background-container .background-img2 #img2 {
+#about-header .background-container .background-img .img {
   width: 100%;
   height: 100%;
 }
@@ -722,7 +712,7 @@ footer .container .theme {
   z-index: 1;
   bottom: 0;
 }
-#call-to-action .container .left-content .portrait {
+#call-to-action .container .left-content .image-container {
   position: relative;
   z-index: 2;
 }

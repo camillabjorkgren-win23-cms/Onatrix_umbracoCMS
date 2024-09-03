@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{  
+    var backgroundImage1 = Model?.Content.Value<IPublishedContent>("backgroundImage1")?.Url() ?? null;
+    var backgroundImage2 = Model?.Content.Value<IPublishedContent>("backgroundImage2")?.Url() ?? null;
+    var backgroundAltText1 = Model?.Content.Value<string>("backgroundImage1AltText");
+    var backgroundAltText2 = Model?.Content.Value<string>("backgroundImage2AltText");
+}
+
+<div class="background-container">
+    <div class="background-img">
+        <img class="img" src="@backgroundImage1" alt="@backgroundAltText1">
+    </div>
+    <div class="background-img">
+        <img class="img" src="@backgroundImage2" alt="@backgroundAltText2">
+    </div>
+</div>
