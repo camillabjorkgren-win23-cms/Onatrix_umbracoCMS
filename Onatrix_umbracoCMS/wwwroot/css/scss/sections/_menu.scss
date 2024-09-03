@@ -1,0 +1,109 @@
+.topbar {
+    background-color: var(--color-primary);
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+
+
+        .address {
+            color: var(--color-light);
+            @include text;
+            padding: 15px;
+        }
+
+        .social-media {
+            display: flex;
+            margin: auto 0;
+
+            a {
+                color: var(--color-light);
+                border-left: 0.1px solid var(--color-border-light-transparent);
+                border-right: 0.1px solid var(--color-border-light-transparent);
+                padding: 15px;
+            }
+        }
+    }
+}
+
+.navbar {
+    .container {
+        display: grid;
+        padding-bottom: 20px;
+        padding-top: 15px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "logo search mobile" "mobile-menu mobile-menu mobile-menu";
+        width: 100%;
+        row-gap: 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+
+
+        @include tablet {
+            display: flex;
+        }
+
+        .logo-img {
+            grid-area: logo;
+            width: fit-content;
+        }
+
+        .btn-menu {
+            display: block;
+            grid-area: mobile;
+            justify-self: center;
+
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            grid-area: mobile-menu;
+            display: flex;
+            justify-content: center;
+            grid-area: mobile-menu;
+            width: 100%;
+            background-color: var(--color-accent);
+            padding: 35px;
+            border-radius: 5px;
+            text-align: center;
+
+
+
+            @include tablet {
+                display: none;
+            }
+
+            ul {
+                text-decoration: none;
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+        .menu {
+            display: none;
+
+            @include tablet {
+                display: block;
+                @include text;
+                font-weight: 600;
+                display: flex;
+                width: 50%;
+                justify-content: space-around;
+            }
+        }
+
+        .search {
+            grid-area: search;
+        }
+    }
+}

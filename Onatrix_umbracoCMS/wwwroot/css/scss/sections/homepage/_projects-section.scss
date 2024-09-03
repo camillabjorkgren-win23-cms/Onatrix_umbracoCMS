@@ -1,0 +1,91 @@
+#our-projects {
+    margin-top: 200px;
+
+    @include tablet {
+        margin-top: 300px;
+    }
+
+    @include desktop {
+        margin-top: 550px;
+    }
+
+    .container {
+        .headline {
+            h2 {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        width: fit-content;
+        margin: 0 auto;
+
+
+        @include desktop {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include ultra-wide {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .card-project {
+            position: relative;
+            width: fit-content;
+            margin: 0 auto;
+
+            &:hover .heading {
+                background-color: var(--color-primary);
+                height: 130px;
+
+                .text h5 {
+                    color: var(--color-secondary);
+                    font-weight: 600;
+                }
+
+                .angle {
+                    display: block;
+                }
+            }
+
+            .heading {
+                background-color: var(--color-primary-light-transparent);
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 20px;
+                height: 95px;
+                transition: height 300ms ease-out, background-color 300ms ease-out;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .text {
+                    padding: 10px;
+
+                    h5 {
+                        color: var(--color-light);
+                        font-weight: 400;
+                        transition: color 300ms ease-out;
+                    }
+
+                    p {
+                        color: var(--color-light);
+                    }
+                }
+
+                .angle {
+                    color: var(--color-light);
+                    font-size: 45px;
+                    margin-right: 40px;
+                    display: none;
+                    transition: display 300ms ease-out;
+                }
+            }
+        }
+    }
+}

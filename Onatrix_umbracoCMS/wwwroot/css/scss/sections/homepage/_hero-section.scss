@@ -1,0 +1,85 @@
+#hero-slider {
+    position: relative;
+    display: flex;
+
+    @include tablet {
+        width: 100vw;
+        max-width: 1920px;
+        height: 600px;
+        max-height: 600px;
+    }
+
+
+
+    .background {
+        @include tablet {
+            position: absolute;
+            background-image: url(../../../images/Homepage/Hero.png);
+            background-size: cover;
+            background-position: 60%;
+            z-index: 1;
+            width: 100vw;
+            max-width: 1920px;
+            @include shadow-l;
+            height: 100%;
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        @include tablet {
+            justify-self: end;
+            align-self: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @include desktop {
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            gap: 0.5rem;
+            margin-top: 20px;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 20px;
+
+            @include tablet {
+                margin-top: 50px;
+                align-items: baseline;
+                text-align: left;
+            }
+
+            @include desktop {
+                gap: 1.5rem;
+            }
+
+
+            .headline {
+                margin: 0;
+                width: 90%;
+                font-weight: 700;
+
+
+                @include tablet {
+                    width: 50%;
+                }
+            }
+
+            .ingress {
+                width: 70%;
+            }
+
+            .button-container {
+                width: fit-content;
+            }
+        }
+    }
+}

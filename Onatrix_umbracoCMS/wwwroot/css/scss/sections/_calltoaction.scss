@@ -1,0 +1,58 @@
+#call-to-action {
+    background-color: var(--color-gray);
+
+    .container {
+        display: flex;
+        padding-top: 35px;
+        align-items: center;
+        gap: 15rem;
+
+        .left-content {
+            position: relative;
+
+            .background {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+            }
+
+            .portrait {
+                position: relative;
+                z-index: 2;
+            }
+        }
+
+        .right-content {
+            .heading {
+                h2 {
+                    font-weight: 700;
+                }
+            }
+
+            .text {
+                .contact {
+                    margin-bottom: 2em;
+
+                    .contact-type {
+                        display: flex;
+                        gap: 0.5em;
+                        align-items: center;
+
+                        i {
+                            color: var(--color-secondary);
+                        }
+
+                        h6 {
+                            margin: 0;
+                            color: var(--color-primary);
+                        }
+                    }
+
+                    .contact-information {
+                        margin-left: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+}

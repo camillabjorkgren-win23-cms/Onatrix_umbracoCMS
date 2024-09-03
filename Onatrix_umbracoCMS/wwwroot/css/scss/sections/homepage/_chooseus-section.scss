@@ -1,0 +1,62 @@
+#why-choose-us {
+    .container {
+        position: relative;
+        padding: 100px 0px 0px 0px;
+
+        .background-img {
+            width: 100%;
+
+            img {
+                width: 100%;
+                position: absolute;
+                z-index: -1;
+                top: 72px;
+            }
+        }
+
+        .headline {
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+
+            .primary {
+                margin: 0;
+                text-align: center;
+            }
+
+            .secondary {
+                color: var(--color-secondary);
+                text-align: center;
+            }
+
+            @include tablet {
+                margin: 0 auto;
+            }
+        }
+
+        .content {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+
+            .text {
+                margin-bottom: 2rem;
+            }
+
+            .button {
+                margin-bottom: 3rem;
+            }
+        }
+
+        .team-img {
+            width: 100%;
+
+            img {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
