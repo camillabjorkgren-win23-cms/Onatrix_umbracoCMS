@@ -6,4 +6,4 @@
     var richTextContent = Model?.Content.Value("richTextContent") ?? null;
 }
 
-<div class="content">@richTextContent</div>
+<div class="content">@await Html.GetBlockGridItemAreasHtmlAsync(Model)</div>

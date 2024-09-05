@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<HeroBlock>>
+@{
+    var backgroundImage = Model?.Content.Value<IPublishedContent>("backgroundImage")?.Url();
+}
+
+<section id="hero-slider" class="hero">
+
+    @if (backgroundImage is not null) {
+        <div class="background-img">
+            <img src="@backgroundImage" alt="@Model.Content.Headline">
+        </div>
+    }
+    <div class="container">
+        <div class="content">
+            <h1>@Model.Content.Headline</h1>
+            @* Only render if there is some content... *@
+            @if (Model.Areas.Any(a => a.Any())) {
+                @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+            }
+        </div>
+    </div>
+</section>
+    
+

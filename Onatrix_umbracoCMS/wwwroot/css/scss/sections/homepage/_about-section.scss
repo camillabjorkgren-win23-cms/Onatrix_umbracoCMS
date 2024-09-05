@@ -4,10 +4,14 @@
         margin-bottom: 70px;
         padding-left: 40px;
 
+        .headline {
+            width: 60%;
+        }
+
         .content {
             width: 60%;
 
-            .signature-container {
+            .content-container {
                 margin-top: 1rem;
             }
         }

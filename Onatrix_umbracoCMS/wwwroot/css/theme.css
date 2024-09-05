@@ -1035,6 +1035,26 @@ h6 {
   color: var(--color-secondary);
 }
 
+.secondary {
+  color: var(--color-secondary) !important;
+}
+
+.light {
+  color: var(--color-light) !important;
+}
+
+.accent {
+  color: var(--color-accent) !important;
+}
+
+.primary {
+  color: var(--color-primary) !important;
+}
+
+.gray {
+  color: var(--color-primary) !important;
+}
+
 .bg-dark {
   background-color: var(--color-dark);
   color: var(--color-default);

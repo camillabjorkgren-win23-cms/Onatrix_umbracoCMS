@@ -17,7 +17,7 @@
         }
     }
 
-    .projects {
+    .content {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.5rem;
@@ -33,26 +33,26 @@
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
 
-        .card-project {
+        .card {
             position: relative;
             width: fit-content;
             margin: 0 auto;
 
-            &:hover .heading {
+            &:hover .content-container {
                 background-color: var(--color-primary);
                 height: 130px;
 
-                .text h5 {
+                .in-content-container h5 {
                     color: var(--color-secondary);
                     font-weight: 600;
                 }
 
-                .angle {
+                .icon-container {
                     display: block;
                 }
             }
 
-            .heading {
+            .content-container {
                 background-color: var(--color-primary-light-transparent);
                 position: absolute;
                 bottom: 0;
@@ -64,7 +64,7 @@
                 justify-content: space-between;
                 align-items: center;
 
-                .text {
+                .in-content-container {
                     padding: 10px;
 
                     h5 {
@@ -78,7 +78,7 @@
                     }
                 }
 
-                .angle {
+                .icon-container {
                     color: var(--color-light);
                     font-size: 45px;
                     margin-right: 40px;

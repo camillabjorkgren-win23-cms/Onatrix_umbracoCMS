@@ -35,3 +35,24 @@
 @include theme-headings ( 'gray', --color-primary, --color-primary, --color-secondary, --color-primary, --color-primary, --color-secondary );
 
 @include theme-headings ( 'light', --color-primary, --color-primary, --color-secondary, --color-primary, --color-secondary, --color-secondary );
+
+
+.secondary {
+    color: var(--color-secondary) !important;
+}
+
+.light {
+    color: var(--color-light) !important;
+}
+
+.accent {
+    color: var(--color-accent) !important;
+}
+
+.primary {
+    color: var(--color-primary) !important;
+}
+
+.gray {
+    color: var(--color-primary) !important;
+}

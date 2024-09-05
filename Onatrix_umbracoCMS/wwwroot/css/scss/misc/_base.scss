@@ -19,10 +19,17 @@ html, body, section, div, header, footer, main, aside, nav, blockquote, p, span 
 }
 
 img, svg {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
     vertical-align: middle;
 }
 
 body {
     @include text;
     color: #535656
+}
+
+section {
+    padding: var(--section-padding);
 }
