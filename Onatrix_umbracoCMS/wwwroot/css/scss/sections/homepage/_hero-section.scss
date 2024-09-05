@@ -77,11 +77,20 @@
             @include desktop {
                 gap: 1.5rem;
             }
+
+            h1 {
+                width: 50%;
+                margin: 0;
+            }
         }
 
         .content-container {
             width: fit-content;
             margin: 0 auto;
+
+            @include tablet {
+                margin: 0;
+            }
         }
     }
 }

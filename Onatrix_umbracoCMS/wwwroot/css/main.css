@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 40px;
+  font-weight: 700;
 }
 @media (min-width: 1440px) {
   h1 {
@@ -356,9 +357,18 @@ footer .container {
     gap: 1.5rem;
   }
 }
+#hero-slider .container .content h1 {
+  width: 50%;
+  margin: 0;
+}
 #hero-slider .container .content-container {
   width: fit-content;
   margin: 0 auto;
+}
+@media (min-width: 768px) {
+  #hero-slider .container .content-container {
+    margin: 0;
+  }
 }
 
 #about-us .container {

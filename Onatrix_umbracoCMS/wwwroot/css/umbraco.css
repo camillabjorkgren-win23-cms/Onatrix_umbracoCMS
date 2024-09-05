@@ -66,8 +66,9 @@
 .umb-block-grid__area-container, .umb-block-grid__block--view::part(area-container) {
     max-width: var(--my-container-max-width);
     padding: var(--my-container-padding);
-    margin-left: auto;
-    margin-right: auto;
+  
+    /*  margin-left: auto;
+    margin-right: auto;*/
 
     /* We add gap for Areas in general: */
     --umb-block-grid--areas-column-gap: 20px;
