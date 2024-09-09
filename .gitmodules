@@ -1,0 +1,3 @@
+[submodule "Knowit.Umbraco.InstantBlockPreview"]
+	path = Knowit.Umbraco.InstantBlockPreview
+	url = https://github.com/kasparboelkjeldsen/Knowit.Umbraco.InstantBlockPreview.git
