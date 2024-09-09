@@ -5,12 +5,16 @@
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
-    var logoImg = settings?.Value<IPublishedContent>("siteLogoType").Url() ?? "";
+    var logoImg = settings?.Value<IPublishedContent>("siteLogoType").Url() ?? null;
 }
 
  <section class="navbar">
                 <div class="container">
-                    <a class="logo-img" href="/"><img src="@logoImg" alt="Onatrix logo image"></a>
+        @if(logoImg != null)
+        {
+             <a class="logo-img" href="/"><img src="@logoImg" alt="Onatrix logo image"></a> 
+        } 
+       
 
                     <button class="btn-menu">
                         <i class="fa-regular fa-bars"></i>

@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var cardHeading = Model?.Content.Value<string>("cardHeading");
+    var text = Model?.Content.Value<string>("text");
+    var cardImage = Model?.Content.Value<IPublishedContent>("cardImage")?.Url();
+    var cardImageDescription = Model?.Content.Value<string>("cardImageDescription");
+}
+
+<div class="service-card">
+    <a href="/services/@cardHeading">
+        <h4 class="heading">@cardHeading</h4>
+        <div class="img-container">
+            <img src="@cardImage" alt="@cardImageDescription">
+        </div>
+        <p class="text">@text</p>
+     </a>
+</div>

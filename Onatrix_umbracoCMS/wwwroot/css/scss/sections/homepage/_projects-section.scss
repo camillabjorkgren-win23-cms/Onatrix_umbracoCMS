@@ -1,5 +1,7 @@
 #our-projects {
     margin-top: 200px;
+    margin: 0 auto;
+    width: 1920px;
 
     @include tablet {
         margin-top: 300px;
@@ -10,6 +12,10 @@
     }
 
     .container {
+        display: flex;
+        justify-content: start;
+        width: 100%;
+
         .headline {
             h2 {
                 font-weight: 700;
@@ -17,8 +23,29 @@
         }
     }
 
+    .umb-block-grid__area[data-area-alias="area2"] {
+        width: 1920px;
+        column-gap: 2rem;
+    }
+
     .content {
-        display: grid;
+        width: 1920px;
+
+        .umb-block-grid__layout-item[data-content-element-type-alias="projectsCard"] {
+            width: fit-content;
+            column-gap: 2rem;
+        }
+
+        .umb-block-grid__layout-item[data-content-element-type-alias="projectsCard"] {
+            width: fit-content;
+            column-gap: 2rem;
+        }
+
+        .umb-block-grid__area[data-content-element-type-alias="area3"] {
+            width: 100%;
+            column-gap: 2rem;
+        }
+        /* display: grid;
         grid-template-columns: 1fr;
         gap: 0.5rem;
         width: fit-content;
@@ -31,12 +58,10 @@
 
         @include ultra-wide {
             grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-
+        }*/
         .card {
-            position: relative;
-            width: fit-content;
             margin: 0 auto;
+            width: fit-content;
 
             &:hover .content-container {
                 background-color: var(--color-primary);
@@ -49,6 +74,13 @@
 
                 .icon-container {
                     display: block;
+                }
+            }
+
+
+            .img-container {
+                img {
+                    width: 100%;
                 }
             }
 

@@ -87,7 +87,7 @@ a:hover, a:focus, a:active {
 }
 
 .bg-gray a {
-  color: var(--color-secondary);
+  color: var(--color-default);
 }
 .bg-gray a:hover, .bg-gray a:focus, .bg-gray a:active {
   color: var(--color-primary);

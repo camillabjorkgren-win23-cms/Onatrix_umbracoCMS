@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="umbraco\" />
+    <Folder Include="wwwroot\app_plugins\" />
   </ItemGroup>
 
   <PropertyGroup>

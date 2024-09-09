@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle")?.ToUpper();
+    var sectionText = Model?.Content.Value<string>("sectionText");
+
+    var sectionTextColor = Model?.Content?.Value<ColorPickerValueConverter.PickedColor>("sectionTextColor")?.Label.ToLower() ?? null;
+    var sectionTitleColor = Model?.Content?.Value<ColorPickerValueConverter.PickedColor>("sectionTitleColor")?.Label.ToLower() ?? null;
+    
+}
+
+ <div class="headline">
+        <h5 class="@sectionTitleColor">@sectionTitle</h5>
+        <h2 class="@sectionTextColor">@sectionText</h2>
+</div>

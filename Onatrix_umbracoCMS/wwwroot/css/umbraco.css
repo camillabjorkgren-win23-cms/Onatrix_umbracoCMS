@@ -1,4 +1,4 @@
-﻿.umb-block-grid__layout-container {
+.umb-block-grid__layout-container {
     position: relative;
     display: grid;
     grid-template-columns: repeat(var(--umb-block-grid--grid-columns, 1), minmax(0, 1fr));
@@ -6,6 +6,7 @@
     grid-auto-rows: minmax(50px, min-content);
     column-gap: var(--umb-block-grid--column-gap, 0);
     row-gap: var(--umb-block-grid--row-gap, 0);
+    width: 100%;
 }
 
 .umb-block-grid__layout-item {
@@ -13,6 +14,7 @@
     /* For small devices we scale columnSpan by three, to make everything bigger than 1/3 take full width: */
     grid-column-end: span min(calc(var(--umb-block-grid--item-column-span, 1) * 3), var(--umb-block-grid--grid-columns));
     grid-row: span var(--umb-block-grid--item-row-span, 1);
+    width: 100%;
 }
 
 .umb-block-grid__area-container,
@@ -24,16 +26,18 @@
     grid-auto-rows: minmax(50px, min-content);
     column-gap: var(--umb-block-grid--areas-column-gap, 0);
     row-gap: var(--umb-block-grid--areas-row-gap, 0);
+  
 }
 
 .umb-block-grid__area {
     position: relative;
     height: 100%;
-    display: flex;
+    justify-content: center;
     flex-direction: column;
     /* For small devices we scale columnSpan by three, to make everything bigger than 1/3 take full width: */
     grid-column-end: span min(calc(var(--umb-block-grid--area-column-span, 1) * 3), var(--umb-block-grid--area-grid-columns));
     grid-row: span var(--umb-block-grid--area-row-span, 1);
+   
 }
 
 @media (min-width: 1024px) {
@@ -53,6 +57,8 @@
     container-type: inline-size;
     --my-container-max-width: 1200px;
     --my-container-padding: 0 20px;
+    width: 100%;
+   
 }
 
 @container (min-width: 720px) {
@@ -64,27 +70,29 @@
 
 /* additional CSS options for area-container and areas: */
 .umb-block-grid__area-container, .umb-block-grid__block--view::part(area-container) {
-    max-width: var(--my-container-max-width);
+    max-width: 100%;
     padding: var(--my-container-padding);
   
     /*  margin-left: auto;
     margin-right: auto;*/
 
     /* We add gap for Areas in general: */
-    --umb-block-grid--areas-column-gap: 20px;
-    --umb-block-grid--areas-row-gap: 20px;
+    /*--umb-block-grid--areas-column-gap: 20px;
+    --umb-block-grid--areas-row-gap: 20px;*/
 }
 
 @container (min-width: 720px) {
     .umb-block-grid__area-container, .umb-block-grid__block--view::part(area-container) {
         --umb-block-grid--areas-column-gap: 60px;
-        --umb-block-grid--areas-row-gap: 60px;
+        --umb-block-grid--areas-row-gap: 30px;
     }
 }
 
 .umb-block-grid__area {
     justify-content: center;
+
 }
+
 
 
 /** Specificly for egen sektion we add block colum-gap/row-gap. Notice this is different from the Area Gaps added above. */
@@ -97,7 +105,7 @@
         --my-container-padding: 0 0px;
     }
 
-.umb-block-grid__area[data-area-alias="left"]  {
+.umb-block-grid__area[data-area-alias="left"]:empty  {
     display: flex;
     justify-content: center;
 }
