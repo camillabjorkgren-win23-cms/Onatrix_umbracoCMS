@@ -1,7 +1,7 @@
 #our-projects {
     margin-top: 200px;
     margin: 0 auto;
-    width: 1920px;
+    max-width: 1920px;
 
     @include tablet {
         margin-top: 300px;
@@ -24,27 +24,19 @@
     }
 
     .umb-block-grid__area[data-area-alias="area2"] {
-        width: 1920px;
-        column-gap: 2rem;
+        max-width: 1920px;
+ 
     }
 
     .content {
-        width: 1920px;
+        max-width: 1920px;
 
         .umb-block-grid__layout-item[data-content-element-type-alias="projectsCard"] {
             width: fit-content;
-            column-gap: 2rem;
+       
         }
 
-        .umb-block-grid__layout-item[data-content-element-type-alias="projectsCard"] {
-            width: fit-content;
-            column-gap: 2rem;
-        }
 
-        .umb-block-grid__area[data-content-element-type-alias="area3"] {
-            width: 100%;
-            column-gap: 2rem;
-        }
         /* display: grid;
         grid-template-columns: 1fr;
         gap: 0.5rem;
