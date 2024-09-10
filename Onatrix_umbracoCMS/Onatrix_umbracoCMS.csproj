@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="umbraco\" />
     <Folder Include="wwwroot\app_plugins\" />
+    <Folder Include="wwwroot\images\backgrounds\" />
   </ItemGroup>
 
   <PropertyGroup>
