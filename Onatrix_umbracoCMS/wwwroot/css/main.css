@@ -20,6 +20,7 @@
 }
 .nav-link:hover {
   color: var(--color-secondary);
+  cursor: pointer;
 }
 .nav-link[target=_blank]::after {
   content: "\f08e";
@@ -797,9 +798,13 @@ footer .container {
   text-decoration: none;
   list-style: none;
 }
-.page-title .container .heading .bread-crumbs a {
+.page-title .container .heading .bread-crumbs li a {
   text-decoration: none;
   list-style: none;
+}
+.page-title .container .heading .bread-crumbs li a:hover {
+  color: var(--color-secondary);
+  cursor: pointer;
 }
 #call-to-action {
   background-color: var(--color-gray);

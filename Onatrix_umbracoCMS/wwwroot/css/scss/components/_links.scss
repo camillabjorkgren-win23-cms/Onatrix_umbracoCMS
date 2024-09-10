@@ -7,6 +7,7 @@
 
     &:hover {
         color: var(--color-secondary);
+        cursor: pointer;
     }
 
     &[target="_blank"] {

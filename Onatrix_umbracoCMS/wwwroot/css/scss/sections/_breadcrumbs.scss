@@ -56,11 +56,17 @@
                 li {
                     text-decoration: none;
                     list-style: none;
-                }
 
-                a {
-                    text-decoration: none;
-                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        list-style: none;
+
+                        &:hover {
+                            color: var(--color-secondary);
+                            cursor: pointer;
+                        }
+                    }
                 }
 
                 .active {

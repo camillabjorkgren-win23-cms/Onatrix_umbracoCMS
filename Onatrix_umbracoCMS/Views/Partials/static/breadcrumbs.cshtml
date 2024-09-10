@@ -5,40 +5,39 @@
 @inject IPublishedUrlProvider PublishedUrlProvider
 
 
-@{ 
+@{
     var homePageDisplayName = "Home";
-    var selection = Model.Ancestors().ToArray(); 
+    var selection = Model.Ancestors().ToArray();
     var isFirstItem = true;
 }
 
 <section class="page-title">
-                <div class="background-container">
-                    <div class="background-img1">
-                        <img src="./images/backgrounds/BackgroundImage1.png" alt="BackgroundImage, a half world">
-                    </div>
-                    <div class="background-img2">
-                        <img src="./images/backgrounds/BackgroundImage2.png" alt="BackgroundImage, a half world the other way">
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <h2>@Model.Name</h2>
-                        @if (selection?.Length > 0)
-                        {
-                        <ul class="bread-crumbs">
-                            @foreach (var item in selection.OrderBy(x => x.Level))
-                            {
-                                
-                                var displayName = isFirstItem ? homePageDisplayName : item.Name;
-                                <li><a href="@item.Url(PublishedUrlProvider)">@displayName</a></li>
-                                isFirstItem = false;
-                                <i class="fa-solid fa-angles-right"></i>
-                            }
-                            
-                            <li class="active">@Model.Name</li>
-                        </ul>
-                        }
-                    </div>
-                </div>
-            </section>
+    <div class="background-container">
+        <div class="background-img1">
+            <img src="./images/backgrounds/BackgroundImage1.png" alt="BackgroundImage, a half world">
+        </div>
+        <div class="background-img2">
+            <img src="./images/backgrounds/BackgroundImage2.png" alt="BackgroundImage, a half world the other way">
+        </div>
+    </div>
+    <div class="container">
+        <div class="heading">
+            <h2>@Model.Name</h2>
+            @if (selection?.Length > 0)
+            {
+                <ul class="bread-crumbs">
+                    @foreach (var item in selection.OrderBy(x => x.Level))
+                    {
+                        var displayName = isFirstItem ? homePageDisplayName : item.Name;
+                        <li><a href="@item.Url(PublishedUrlProvider)" class="nav-link">@displayName</a></li>
+                        isFirstItem = false;
+                        <i class="fa-solid fa-angles-right"></i>
+                    }
+
+                    <li class="active">@Model.Name</li>
+                </ul>
+            }
+        </div>
+    </div>
+</section>
 
