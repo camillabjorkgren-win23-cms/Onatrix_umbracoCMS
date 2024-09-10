@@ -10,18 +10,18 @@
   }
 }
 
-a {
+.nav-link {
   display: inline-block;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1em;
   text-decoration: none;
+  font-weight: 600;
 }
-a:hover {
-  text-decoration: underline;
+.nav-link:hover {
+  color: var(--color-secondary);
 }
-a[target=_blank]::after {
+.nav-link[target=_blank]::after {
   content: "\f08e";
   font-family: "Font Awesome 6 Pro";
   display: inline-block;
@@ -235,7 +235,6 @@ footer .container {
   grid-area: mobile-menu;
   display: flex;
   justify-content: center;
-  grid-area: mobile-menu;
   width: 100%;
   background-color: var(--color-accent);
   padding: 35px;
@@ -269,6 +268,9 @@ footer .container {
     width: 50%;
     justify-content: space-around;
   }
+}
+.navbar .container .menu .active {
+  color: var(--color-secondary);
 }
 .navbar .container .search {
   grid-area: search;
@@ -717,7 +719,7 @@ footer .container {
 #partners .container {
   padding: 80px 0px 80px 0px;
 }
-#partners .container .content {
+#partners .container .image-slider {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
@@ -727,12 +729,12 @@ footer .container {
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  #partners .container .content {
+  #partners .container .image-slider {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media (min-width: 1440px) {
-  #partners .container .content {
+  #partners .container .image-slider {
     display: flex;
     gap: 5rem;
   }
