@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = "mainLayout.cshtml";
-	ViewBag.Title = Model.Name;
+	 ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
 }
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {

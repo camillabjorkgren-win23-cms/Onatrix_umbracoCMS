@@ -762,12 +762,23 @@ footer .container {
   height: 100%;
   width: 100%;
 }
-.page-title .background-container .background-img {
+.page-title .background-container .background-img1 {
   z-index: 1;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
-.page-title .background-container .background-img .img {
+.page-title .background-container .background-img1 .img {
+  width: 100%;
+  height: 100%;
+}
+.page-title .background-container .background-img2 {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.page-title .background-container .background-img2 .img {
   width: 100%;
   height: 100%;
 }
