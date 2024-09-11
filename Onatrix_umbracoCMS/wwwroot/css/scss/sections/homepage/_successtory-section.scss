@@ -35,73 +35,73 @@
             margin: 0 auto;
         }
 
-        .content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 3rem;
+        .umb-block-grid__layout-item[data-content-element-type-alias="threeColumnLayoutNoRows"] {
+            width: fit-content;
+            height: fit-content;
 
-            .content-container {
-                margin: 0 auto;
 
-                h1 {
-                    color: var(--color-secondary);
 
-                    @include desktop {
-                        font-size: 100px;
+
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 3rem;
+
+
+
+
+                .content-container {
+                    margin: 0 auto;
+
+                    h1 {
+                        color: var(--color-secondary);
+                        font-size: 70px;
+
+                        @include tablet {
+                            font-size: 100px;
+                        }
+                    }
+
+                    h5 {
+                        width: 100%;
+                        color: var(--color-light);
+                        font-weight: 300;
+
+                        @include desktop {
+                            font-weight: 500;
+                        }
                     }
                 }
-
-                h5 {
-                    width: 100%;
-                    color: var(--color-light);
-                    font-weight: 300;
-
-                    @include tablet {
-                        font-weight: 500;
-                    }
-                }
-            }
-
-            .umb-block-grid__area[data-area-alias="area4"] {
-                display: none;
-            }
-
-            .umb-block-grid__area[data-area-alias="area5"] {
-                display: none;
-            }
-
-            .umb-block-grid__area[data-area-alias="area6"] {
-                display: none;
             }
         }
-    }
 
-    .image-container {
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        position: relative;
-
-        img {
-            width: 60%;
+        .image-container {
+            width: 100%;
             margin: 0 auto;
-            position: absolute;
-            top: 0px;
+            display: flex;
+            justify-content: center;
+            position: relative;
 
-            @include tablet {
-                top: 50px;
+            img {
+                width: 60%;
+                margin: 0 auto;
+                position: absolute;
+                top: 0px;
+
+                @include tablet {
+                    top: 50px;
+                }
             }
         }
-    }
 
-    .umb-block-grid__area[data-area-alias="left"] {
-        display: none;
-    }
+        .umb-block-grid__area[data-area-alias="left"] {
+            display: none;
+        }
 
-    .umb-block-grid__area[data-area-alias="right"] {
-        display: none;
+        .umb-block-grid__area[data-area-alias="right"] {
+            display: none;
+        }
     }
 }
