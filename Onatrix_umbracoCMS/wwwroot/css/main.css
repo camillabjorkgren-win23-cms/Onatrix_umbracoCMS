@@ -727,7 +727,7 @@ footer .container {
 #partners .container {
   padding: 80px 0px 80px 0px;
 }
-#partners .container .image-slider {
+#partners .container .image-slider .slides {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
@@ -737,12 +737,12 @@ footer .container {
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  #partners .container .image-slider {
+  #partners .container .image-slider .slides {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media (min-width: 1440px) {
-  #partners .container .image-slider {
+  #partners .container .image-slider .slides {
     display: flex;
     gap: 5rem;
   }

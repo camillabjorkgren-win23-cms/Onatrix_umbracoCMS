@@ -2,11 +2,23 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
 @{
     var heading = Model?.Content.Value<string>("heading");
     var smallText = Model?.Content.Value<string>("smallText");
     var cardImage = Model?.Content.Value<IPublishedContent>("cardImage")?.Url();
     var cardImageDescription = Model?.Content.Value<string>("cardImageDescription");
+
+    // var rootContents = UmbracoHelper.ContentAtRoot();
+    // var homePage = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "contentPage") ?? null;
+    // var homeContents = homePage?.Children;
+    // var serviceListPage = homeContents?.FirstOrDefault(x => x.ContentType.Alias == "serviceListPage") ?? null;
+
+    // var pageTitle = serviceListPage?.Value<string>("pageTitle");
+    // var cleanedPageTitle = pageTitle != null ? pageTitle.ToLower().Replace(" ", "-") : string.Empty;
+
+    // var cleanedCardHeading = cardHeading != null ? cardHeading.ToLower().Replace(" ", "-") : string.Empty;
 }
 
  <div class="card">
