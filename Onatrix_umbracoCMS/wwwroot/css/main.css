@@ -752,7 +752,7 @@ footer .container {
   max-width: 1920px;
   box-shadow: -12px 4px -18px -2px rgba(19, 16, 34, 0.06), 0px 4.8px 24.4px -6px rgba(19, 16, 34, 0.1);
   background-color: var(--color-gray);
-  z-index: -1;
+  z-index: 0;
   margin: 0 auto;
 }
 .page-title .background-container {
@@ -798,7 +798,7 @@ footer .container {
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   margin: 0;
   padding: 0;
