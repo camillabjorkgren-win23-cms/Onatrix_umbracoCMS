@@ -2,6 +2,7 @@
 @using Umbraco.Cms.Core.Routing
 @using Umbraco.Extensions
 
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
 @inject IPublishedUrlProvider PublishedUrlProvider
 
 
@@ -9,15 +10,20 @@
     var homePageDisplayName = "Home";
     var selection = Model.Ancestors().ToArray();
     var isFirstItem = true;
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var backgroundImage1 = settings?.Value<IPublishedContent>("backgroundImage1").Url() ?? null;
+    var backgroundImage2 = settings?.Value<IPublishedContent>("backgroundImage2").Url() ?? null;
 }
 
 <section class="page-title">
     <div class="background-container">
         <div class="background-img1">
-            <img src="./images/backgrounds/BackgroundImage1.png" alt="BackgroundImage, a half world">
+            <img src="@backgroundImage1" alt="BackgroundImage, a half world">
         </div>
         <div class="background-img2">
-            <img src="./images/backgrounds/BackgroundImage2.png" alt="BackgroundImage, a half world the other way">
+            <img src="@backgroundImage2" alt="BackgroundImage, a half world the other way">
         </div>
     </div>
     <div class="container">

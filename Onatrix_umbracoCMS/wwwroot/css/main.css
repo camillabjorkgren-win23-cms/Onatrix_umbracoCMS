@@ -630,6 +630,9 @@ footer .container {
   margin-top: 200px;
   margin: 0 auto;
   max-width: 1920px;
+  /* .umb-block-grid__area[data-area-alias="area2"] {
+      width: 100%;
+  }*/
 }
 @media (min-width: 768px) {
   #our-projects {
@@ -649,48 +652,48 @@ footer .container {
 #our-projects .container .headline h2 {
   font-weight: 700;
 }
-#our-projects .umb-block-grid__area[data-area-alias=area2] {
-  max-width: 1920px;
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-#our-projects .content {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content {
   max-width: 1920px;
-  /* display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-  width: fit-content;
   margin: 0 auto;
-
-
-  @include desktop {
-      grid-template-columns: 1fr 1fr;
+}
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1920px) {
+  #our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container {
+    grid-template-columns: 1fr;
   }
-
-  @include ultra-wide {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  }*/
 }
-#our-projects .content .umb-block-grid__layout-item[data-content-element-type-alias=projectsCard] {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .umb-block-grid__layout-item[data-content-element-type-alias=projectsCard] {
   width: fit-content;
+  margin: 0 auto;
 }
-#our-projects .content .card {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card {
   margin: 0 auto;
   width: fit-content;
 }
-#our-projects .content .card:hover .content-container {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card:hover .content-container {
   background-color: var(--color-primary);
   height: 130px;
 }
-#our-projects .content .card:hover .content-container .in-content-container h5 {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card:hover .content-container .in-content-container h5 {
   color: var(--color-secondary);
   font-weight: 600;
 }
-#our-projects .content .card:hover .content-container .icon-container {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card:hover .content-container .icon-container {
   display: block;
 }
-#our-projects .content .card .img-container img {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .img-container img {
   width: 100%;
 }
-#our-projects .content .card .content-container {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container {
   background-color: var(--color-primary-light-transparent);
   position: absolute;
   bottom: 0;
@@ -702,18 +705,18 @@ footer .container {
   justify-content: space-between;
   align-items: center;
 }
-#our-projects .content .card .content-container .in-content-container {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .in-content-container {
   padding: 10px;
 }
-#our-projects .content .card .content-container .in-content-container h5 {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .in-content-container h5 {
   color: var(--color-light);
   font-weight: 400;
   transition: color 300ms ease-out;
 }
-#our-projects .content .card .content-container .in-content-container p {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .in-content-container p {
   color: var(--color-light);
 }
-#our-projects .content .card .content-container .icon-container {
+#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .icon-container {
   color: var(--color-light);
   font-size: 45px;
   margin-right: 40px;
