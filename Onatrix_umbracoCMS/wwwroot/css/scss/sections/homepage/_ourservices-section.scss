@@ -10,6 +10,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            margin-bottom: 2rem;
 
             h2 {
                 text-align: center;
@@ -21,7 +22,7 @@
         }
 
         .content {
-        /*    display: grid;
+            display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
 
@@ -33,7 +34,7 @@
 
             @include desktop {
                 grid-template-columns: 1fr 1fr 1fr;
-            }*/
+            }
 
             .service-card {
                 background-color: white;
@@ -43,33 +44,39 @@
                 a {
                     text-decoration: none;
                     color: var (--color-default);
-                }
+                    font-style: none;
 
-                &:hover .heading {
-                    color: var(--color-secondary);
-                    
-                }
-                &:hover {
-                    cursor:pointer;
-                }
 
-                .heading {
-                    padding-left: 30px;
-                    padding-top: 25px;
-                    padding-bottom: 25px;
-                    margin: 0;
-                }
-
-                .img-container {
-                    img {
-                        width: 100%;
+                    &:hover .heading {
+                        color: var(--color-secondary);
                     }
-                }
 
-                .text {
-                    padding-left: 30px;
-                    padding-top: 25px;
-                    padding-bottom: 25px;
+
+                    &:hover .text {
+                        color: var(--color-default);
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    .heading {
+                        padding-left: 30px;
+                        padding-top: 25px;
+                        padding-bottom: 25px;
+                        margin: 0;
+                    }
+
+                    .img-container {
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .text {
+                        padding-left: 30px;
+                        padding-top: 25px;
+                        padding-bottom: 25px;
+                    }
                 }
             }
         }

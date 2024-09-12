@@ -1,0 +1,52 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var headline = Model?.Content.Value<string>("headLine") ?? "";
+    
+    var colorLabel = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = !string.IsNullOrEmpty(colorLabel) ? $"bg-{colorLabel}" : "";
+
+	var selection = Umbraco.Content(Guid.Parse("69504e0b-efce-46a0-9e95-8b17379c3f90"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible())
+    .Take(6);
+
+}
+
+<section id="our-services" class="our-services @backgroundColorClass">
+                <div class="container">
+                    <div class="headline">
+                        <h5 class="secondary">@sectionTitle</h5>
+                        <h2>@headline</h2>
+                    </div>
+                    <div class="content">
+                        @if(selection != null)
+                        {
+                            @foreach (var item in selection)
+                            {
+
+                                var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+                                    var preamble = item?.Value<string>("preamble") ?? "";
+
+                                        
+                                            <div class="service-card">
+                                                <a href="@item.Url()">
+                                                <h4 class="heading">@item.Name()</h4>
+                                                    <div class="img-container">
+                                                        <img src="@image" alt="@item.Name()">
+                                                    </div>
+                                                <p class="text">@preamble</p>
+                                                 </a>
+                                            </div>
+                                       
+                            }
+                        }
+                    </div>
+                </div>
+</section>
+                        

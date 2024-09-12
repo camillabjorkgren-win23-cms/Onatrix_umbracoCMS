@@ -18,7 +18,7 @@
     var pageTitle = serviceListPage?.Value<string>("pageTitle");
     var cleanedPageTitle = pageTitle != null ? pageTitle.ToLower().Replace(" ", "-") : string.Empty;
 
-    var cleanedCardHeading = cardHeading != null ? cardHeading.ToLower().Replace(" ", "-") : string.Empty;
+    var cleanedCardHeading = cardHeading != null ? cardHeading.ToLower().Replace(" ", "-").Replace("&", "").Replace("--", "-") : string.Empty;
 
 }
 

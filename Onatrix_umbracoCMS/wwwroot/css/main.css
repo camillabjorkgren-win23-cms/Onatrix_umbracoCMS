@@ -402,6 +402,7 @@ footer .container {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 #our-services .container .headline h2 {
   text-align: center;
@@ -412,19 +413,19 @@ footer .container {
   }
 }
 #our-services .container .content {
-  /*    display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-
-
-      @include tablet {
-          grid-template-columns: 1fr 1fr;
-      }
-
-
-      @include desktop {
-          grid-template-columns: 1fr 1fr 1fr;
-      }*/
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  #our-services .container .content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1440px) {
+  #our-services .container .content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 #our-services .container .content .service-card {
   background-color: white;
@@ -434,23 +435,27 @@ footer .container {
 #our-services .container .content .service-card a {
   text-decoration: none;
   color: var --color-default;
+  font-style: none;
 }
-#our-services .container .content .service-card:hover .heading {
+#our-services .container .content .service-card a:hover .heading {
   color: var(--color-secondary);
 }
-#our-services .container .content .service-card:hover {
+#our-services .container .content .service-card a:hover .text {
+  color: var(--color-default);
+}
+#our-services .container .content .service-card a:hover {
   cursor: pointer;
 }
-#our-services .container .content .service-card .heading {
+#our-services .container .content .service-card a .heading {
   padding-left: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
   margin: 0;
 }
-#our-services .container .content .service-card .img-container img {
+#our-services .container .content .service-card a .img-container img {
   width: 100%;
 }
-#our-services .container .content .service-card .text {
+#our-services .container .content .service-card a .text {
   padding-left: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -857,4 +862,68 @@ footer .container {
 }
 #call-to-action .container .right-content .text .contact .contact-information {
   margin-left: 1.5em;
+}
+
+.pagination {
+  margin: 50px auto 50px auto;
+}
+.pagination .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  width: max-content;
+}
+.pagination .container a {
+  text-decoration: none;
+  font-weight: 700;
+}
+.pagination .container a:hover {
+  color: var(--color-secondary);
+}
+.pagination .container .change {
+  color: var(--color-default);
+}
+.pagination .container .inactive {
+  color: var(--color-darkgray);
+}
+.pagination .container .pages {
+  margin: 0 1rem 0 1rem;
+  padding: 0;
+  display: flex;
+}
+.pagination .container .pages li {
+  list-style: none;
+  text-decoration: none;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  position: relative;
+}
+.pagination .container .pages li a {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  position: absolute;
+  left: 1em;
+  top: 0.3em;
+}
+.pagination .container .pages .active {
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid;
+  transition: 0.25s;
+  text-decoration: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  color: var(--color-border-gray);
+}
+.pagination .container .pages .active:hover {
+  transition: 0.25s;
+  text-decoration: none;
 }

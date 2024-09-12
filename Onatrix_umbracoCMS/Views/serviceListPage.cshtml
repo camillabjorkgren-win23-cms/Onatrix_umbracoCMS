@@ -41,15 +41,16 @@
                     var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
                     var preamble = item?.Value<string>("preamble") ?? "";
 
-                    <a href="@item.Url()">
+                    
                         <div class="service-card">
+                            <a href="@item.Url()">
                             <h4 class="heading">@item.Name()</h4>
                             <div class="img-container">
                                 <img src="@image" alt="@item.Name()">
                             </div>
                             <p class="text">@preamble</p>
-                        </div>
-                    </a>
+                             </a>
+                        </div>             
                 }
             }
         </div>
