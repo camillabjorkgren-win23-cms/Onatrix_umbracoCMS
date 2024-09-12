@@ -1,15 +1,45 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+	
+	var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var asideContentImage = settings?.Value<IPublishedContent>("asideContentImage").Url() ?? null;
 }
+
+
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {
 	@await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
+
 <section class="service-details">
-		<div class="container">
-			@Model.Value("pageContent")
+	<div class="container">
+		<div class="aside-content">
+			<div class="headline">
+				<a href="/about" class="nav-link">
+				<h4>About us</h4></a>
+			</div>
+			<div class="image-container">
+				<img src="@asideContentImage" alt="">
+			</div>
+			<p class="text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
 		</div>
+
+		<div class="page-content">
+				<div class="content">
+					@Model.Value("pageContent")
+				</div>
+		</div>
+
+		<div class="form-container">
+			</div>
+	</div>
 </section>
+
+@await Html.PartialAsync("static/callToAction")

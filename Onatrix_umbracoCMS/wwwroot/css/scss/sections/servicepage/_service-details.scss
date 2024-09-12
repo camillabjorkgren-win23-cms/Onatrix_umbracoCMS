@@ -1,0 +1,56 @@
+.service-details {
+    margin: 50px 0 50px 0;
+
+    .container {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        grid-template-areas: "aside content";
+
+        .aside-content {
+            grid-area: aside;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1rem;
+            position: relative;
+            min-height: 200px;
+
+           .a {
+               &:hover {
+                   color: var(--color-secondary) !important;
+               }
+           }
+
+            .image-container {
+                object-fit: cover;
+                width: min-content;
+                height: min-content;
+
+                img {
+                    width: 230px;
+                }
+            }
+        }
+
+        .aside-content::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 0.5px;
+            background-color: var(--color-border-light);
+        }
+
+        .page-content {
+            grid-area: content;
+            padding: 0 2rem 0 2rem;
+
+            .content {
+                h3 {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}

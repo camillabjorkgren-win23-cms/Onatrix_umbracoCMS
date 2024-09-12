@@ -2,14 +2,102 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = "mainLayout.cshtml";
-	 ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+
+	var selectionProjectItems = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible()).Take(4);
+
+	var selectionTags = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))?
+    .ChildrenOfType("projectItemTemplate")?
+    .Where(x => (x.Name == Model?.Name)).ToList();
+	var tagsList = new List<string>();
+	for(var i = 0; i < selectionTags.Count; i++)
+	{
+		var tags = selectionTags[i].Value<IEnumerable<string>>("tags");
+
+		if (tags != null && tags.Any())
+		{
+			foreach (var tag in tags)
+			{
+				tagsList.Add(tag);
+			}
+		}
+	}
+	
+
 }
+
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {
 	@await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
+
 <section class="project-details">
 		<div class="container">
-			@Model.Value("pageContent")
-		</div>
+
+			<div class="page-content">
+				@Model.Value("pageContent")
+				<div class="tags-page">
+						<h4>Tags :</h4>
+					
+					@if(selectionTags != null)
+					{
+						<ul class="tags">
+						@foreach (var tag in tagsList)
+						{
+							<li class="tag" onClick=>
+								@tag
+							</li>
+						}
+						</ul>
+					}
+				</div>
+			</div>
+
+			<div class="aside-content">
+				<div class="headline">
+						<h4>Recent projects</h4>
+					</div>
+				<div class="recent-projects"> 
+					@if (selectionProjectItems != null)
+					{
+						@foreach (var project in selectionProjectItems)
+						{
+							var image = project?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+                    		var date = project?.Value("date") ?? "";
+
+                        <div class="project-card">
+							
+								<div class="img-container">
+									<img src="@image" alt="@project.Name()">
+								</div>
+								<a href="@project.Url()">
+								<div class="content">
+									<h6 class="heading">@project.Name()</h6>  
+									<p class="text"><i class="fa-regular fa-calendar-days"></i>@date</p>  
+								</div>
+							</a>
+                        </div>          
+						}
+					}
+				</div>
+					<div class="headline">
+						<h4>Tags</h4>
+					</div>
+					@if(selectionTags != null)
+					{
+						<ul class="tags">
+						@foreach (var tag in tagsList)
+						{
+							<li class="tag" onClick=>
+								@tag
+							</li>
+						}
+						</ul>
+					}
+			</div>
+
+		</div>		
 </section>
+@await Html.PartialAsync("static/callToAction")
