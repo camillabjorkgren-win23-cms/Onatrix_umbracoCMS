@@ -1,0 +1,53 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var headline = Model?.Content.Value<string>("headLine") ?? "";
+
+	var selection = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible()).Take(4);
+
+}
+
+<section id="our-projects" class="our-projects">
+                <div class="container">
+                    <div class="headline">
+                        <h5 class="secondary">@sectionTitle</h5>
+                        <h2>@headline</h2>
+                    </div>
+                </div>
+                    <div class="content">
+                        @if(selection != null)
+                        {
+                            @foreach (var item in selection)
+                            {
+                                var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+                                var category = item?.Value<string>("category") ?? "";
+
+                                    <div class="card">
+                                        <div class="image-container">
+                                            <img src="@image" alt="@item.Name">
+                                        </div>            
+                                        <a href="@item.Url()">      
+                                            <div class="content-container">
+                                                <div class="in-content-container">
+                                                    <h5>@item.Name</h5>
+                                                    <p>@category</p>
+                                                </div>
+                                                <div class="icon-container">
+                                                    <i class="fa-regular fa-angle-right"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>                                    
+                            }
+                        }
+                    </div>
+                
+</section>
+                        

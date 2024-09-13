@@ -25,7 +25,7 @@
     @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
 
-<section id="our-projects">
+<section id="project-page">
     <div class="container">
         <div class="content">
             @if (pagedItems != null)
@@ -41,11 +41,13 @@
                             <div class="img-container">
                                 <img src="@image" alt="@item.Name()">
                             </div>
-                            <div class="content">
+                            <div class="content-container">
                                 <h4 class="heading">@item.Name()</h4>  
-                                <p class="text"><i class="fa-regular fa-calendar-days"></i>@date</p>    
+                                <p class="date"><i class="fa-regular fa-calendar-days"></i>@date</p>    
                                 <p class="text">@preamble</p>
-                                <a href="@item.Url()">Read more <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                <div class="icon-container">
+                                    <a href="@item.Url()">Read more <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>          
                 }

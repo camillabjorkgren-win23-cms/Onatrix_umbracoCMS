@@ -629,11 +629,6 @@ footer .container {
 
 #our-projects {
   margin-top: 200px;
-  margin: 0 auto;
-  max-width: 1920px;
-  /* .umb-block-grid__area[data-area-alias="area2"] {
-      width: 100%;
-  }*/
 }
 @media (min-width: 768px) {
   #our-projects {
@@ -645,56 +640,45 @@ footer .container {
     margin-top: 550px;
   }
 }
-#our-projects .container {
-  display: flex;
-  justify-content: start;
-  width: 100%;
+#our-projects .container .headline {
+  margin-bottom: 2rem;
 }
 #our-projects .container .headline h2 {
   font-weight: 700;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content {
-  max-width: 1920px;
+#our-projects .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: fit-content;
   margin: 0 auto;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-@media (max-width: 1920px) {
-  #our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container {
-    grid-template-columns: 1fr;
+@media (min-width: 1440px) {
+  #our-projects .content {
+    grid-template-columns: 1fr 1fr;
   }
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .umb-block-grid__layout-item[data-content-element-type-alias=projectsCard] {
+@media (min-width: 1920px) {
+  #our-projects .content {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+#our-projects .content .card {
+  position: relative;
   width: fit-content;
   margin: 0 auto;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card {
-  margin: 0 auto;
-  width: fit-content;
-}
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card:hover .content-container {
+#our-projects .content .card:hover .content-container {
   background-color: var(--color-primary);
   height: 130px;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card:hover .content-container .in-content-container h5 {
+#our-projects .content .card:hover .content-container .in-content-container h5 {
   color: var(--color-secondary);
   font-weight: 600;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card:hover .content-container .icon-container {
+#our-projects .content .card:hover .content-container .icon-container {
   display: block;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .img-container img {
-  width: 100%;
-}
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container {
+#our-projects .content .card .content-container {
   background-color: var(--color-primary-light-transparent);
   position: absolute;
   bottom: 0;
@@ -706,18 +690,18 @@ footer .container {
   justify-content: space-between;
   align-items: center;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .in-content-container {
+#our-projects .content .card .content-container .in-content-container {
   padding: 10px;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .in-content-container h5 {
+#our-projects .content .card .content-container .in-content-container h5 {
   color: var(--color-light);
   font-weight: 400;
   transition: color 300ms ease-out;
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .in-content-container p {
+#our-projects .content .card .content-container .in-content-container p {
   color: var(--color-light);
 }
-#our-projects .umb-block-grid__layout-item[data-content-element-type-alias=fourColumnLayout] .content .umb-block-grid__area-container .card .content-container .icon-container {
+#our-projects .content .card .content-container .icon-container {
   color: var(--color-light);
   font-size: 45px;
   margin-right: 40px;
@@ -971,6 +955,57 @@ footer .container {
 }
 .service-details .container .page-content .content h3 {
   color: var(--color-primary);
+}
+
+#project-page .container {
+  margin-top: 4rem;
+}
+#project-page .container .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+}
+#project-page .container .content .project-card {
+  display: flex;
+  gap: 2rem;
+  row-gap: 1rem;
+  height: 100%;
+}
+#project-page .container .content .project-card .img-container {
+  object-fit: cover;
+  object-position: top;
+}
+#project-page .container .content .project-card .img-container img {
+  width: 370px;
+  height: 200px;
+}
+#project-page .container .content .project-card .content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+#project-page .container .content .project-card .content-container .heading {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+#project-page .container .content .project-card .content-container .date {
+  font-size: 14px;
+  color: var(--color-darkgray);
+}
+#project-page .container .content .project-card .content-container .text {
+  color: var(--color-default);
+  margin-top: 2rem;
+}
+#project-page .container .content .project-card .content-container .icon-container {
+  margin-top: auto;
+}
+#project-page .container .content .project-card .content-container .icon-container a {
+  font-weight: 600;
+  text-decoration: none;
+}
+#project-page .container .content .project-card .content-container .icon-container i {
+  color: var(--color-secondary);
 }
 
 .project-details {

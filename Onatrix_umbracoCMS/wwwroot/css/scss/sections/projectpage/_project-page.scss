@@ -1,0 +1,69 @@
+#project-page {
+
+
+    .container {
+        margin-top: 4rem;
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 2rem;
+    
+
+            .project-card {
+                display: flex;
+                gap: 2rem;
+                row-gap: 1rem;
+                height: 100%;
+           
+
+                .img-container {
+                    object-fit: cover;
+                    object-position: top;
+
+                    img {
+                        width: 370px;
+                        height: 200px;
+                    }
+                }
+
+                .content-container {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    flex: 1;
+                  
+
+
+                    .heading {
+                        font-size: 22px;
+                        margin-bottom: 5px;
+                    }
+
+                    .date {
+                        font-size: 14px;
+                        color: var(--color-darkgray);
+                    }
+
+                    .text {
+                        color: var(--color-default);
+                        margin-top: 2rem;
+                    }
+
+
+                    .icon-container {
+                       margin-top: auto;
+
+                       a {
+                           font-weight: 600;
+                           text-decoration: none;
+                       }
+                       i {
+                           color: var(--color-secondary);
+                       }
+                    }
+                }
+            }
+        }
+    }
+}

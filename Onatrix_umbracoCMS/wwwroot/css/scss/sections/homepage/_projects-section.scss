@@ -1,7 +1,5 @@
 #our-projects {
     margin-top: 200px;
-    margin: 0 auto;
-    max-width: 1920px;
 
     @include tablet {
         margin-top: 300px;
@@ -12,106 +10,80 @@
     }
 
     .container {
-        display: flex;
-        justify-content: start;
-        width: 100%;
-
         .headline {
+            margin-bottom: 2rem;
             h2 {
                 font-weight: 700;
             }
         }
     }
-    /* .umb-block-grid__area[data-area-alias="area2"] {
-        width: 100%;
-    }*/
 
-    .umb-block-grid__layout-item[data-content-element-type-alias="fourColumnLayout"] {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: fit-content;
+        margin: 0 auto;
 
 
-        .content {
-            max-width: 1920px;
+        @include desktop {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include ultra-wide {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .card {
+            position: relative;
+            width: fit-content;
             margin: 0 auto;
 
+            &:hover .content-container {
+                background-color: var(--color-primary);
+                height: 130px;
 
-            .umb-block-grid__area-container {
+                .in-content-container h5 {
+                    color: var(--color-secondary);
+                    font-weight: 600;
+                }
+
+                .icon-container {
+                    display: block;
+                }
+            }
+
+            .content-container {
+                background-color: var(--color-primary-light-transparent);
+                position: absolute;
+                bottom: 0;
                 width: 100%;
-                justify-content: center;
+                padding: 20px;
+                height: 95px;
+                transition: height 300ms ease-out, background-color 300ms ease-out;
+                display: flex;
+                justify-content: space-between;
                 align-items: center;
 
+                .in-content-container {
+                    padding: 10px;
 
-                @media (max-width: 1920px) {
-                    grid-template-columns: 1fr;
+                    h5 {
+                        color: var(--color-light);
+                        font-weight: 400;
+                        transition: color 300ms ease-out;
+                    }
+
+                    p {
+                        color: var(--color-light);
+                    }
                 }
 
-
-                .umb-block-grid__layout-item[data-content-element-type-alias="projectsCard"] {
-                    width: fit-content;
-                    margin: 0 auto;
-                }
-
-                .card {
-                    margin: 0 auto;
-                    width: fit-content;
-
-                    &:hover .content-container {
-                        background-color: var(--color-primary);
-                        height: 130px;
-
-                        .in-content-container h5 {
-                            color: var(--color-secondary);
-                            font-weight: 600;
-                        }
-
-                        .icon-container {
-                            display: block;
-                        }
-                    }
-
-
-                    .img-container {
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                    .content-container {
-                        background-color: var(--color-primary-light-transparent);
-                        position: absolute;
-                        bottom: 0;
-                        width: 100%;
-                        padding: 20px;
-                        height: 95px;
-                        transition: height 300ms ease-out, background-color 300ms ease-out;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-
-                        .in-content-container {
-                            padding: 10px;
-
-                            h5 {
-                                color: var(--color-light);
-                                font-weight: 400;
-                                transition: color 300ms ease-out;
-                            }
-
-                            p {
-                                color: var(--color-light);
-                            }
-                        }
-
-                        .icon-container {
-                            color: var(--color-light);
-                            font-size: 45px;
-                            margin-right: 40px;
-                            display: none;
-                            transition: display 300ms ease-out;
-                        }
-                    }
+                .icon-container {
+                    color: var(--color-light);
+                    font-size: 45px;
+                    margin-right: 40px;
+                    display: none;
+                    transition: display 300ms ease-out;
                 }
             }
         }
