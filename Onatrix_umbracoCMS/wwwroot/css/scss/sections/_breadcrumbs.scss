@@ -10,33 +10,36 @@
     margin: 0 auto;
 
     .background-container {
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-
-        .background-img1 {
-            z-index: 1;
+        display: none;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
             position: absolute;
-            left: 0;
-            bottom: 0;
+            height: 100%;
+            width: 100%;
 
-            .img {
-                width: 100%;
-                height: 100%;
+            .background-img1 {
+                z-index: 1;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                .img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
-        }
 
-        .background-img2 {
-            z-index: 1;
-            position: absolute;
-            right: 0;
-            top: 0;
+            .background-img2 {
+                z-index: 1;
+                position: absolute;
+                right: 0;
+                top: 0;
 
-            .img {
-                width: 100%;
-                height: 100%;
+                .img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }

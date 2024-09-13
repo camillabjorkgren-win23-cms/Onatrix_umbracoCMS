@@ -1,0 +1,34 @@
+#founder {
+    .container {
+        margin-top: 100px;
+        margin-bottom: 150px;
+        display: flex;
+        gap: 2rem;
+        padding: 2rem;
+
+        .image-container {
+            width: fit-content;
+
+            @include tablet {
+                margin-left: 3rem;
+            }
+
+
+            img {
+                width: 75%;
+
+                @include tablet {
+                    width: 100%;
+                }
+            }
+        }
+
+        .text {
+            font-style: italic;
+
+            @include tablet {
+                margin-left: 3rem;
+            }
+        }
+    }
+}
