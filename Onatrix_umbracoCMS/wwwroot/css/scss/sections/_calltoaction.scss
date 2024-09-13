@@ -8,24 +8,30 @@
         gap: 15rem;
 
         .left-content {
-            position: relative;
-
-            .background {
-                position: absolute;
-                z-index: 1;
-                bottom: 0;
-            }
-
-            .portrait {
+            display: none;
+            @include desktop {
+                display: block;
                 position: relative;
-                z-index: 2;
+
+                .background {
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 0;
+                }
+
+                .portrait {
+                    position: relative;
+                    z-index: 2;
+                }
             }
         }
 
         .right-content {
+            margin: 0 auto;
             .heading {
                 margin-bottom: 2rem;
                 width: 80%;
+
                 h2 {
                     font-weight: 700;
                 }

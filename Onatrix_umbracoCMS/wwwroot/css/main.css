@@ -954,16 +954,25 @@ footer .container {
   gap: 15rem;
 }
 #call-to-action .container .left-content {
-  position: relative;
+  display: none;
 }
-#call-to-action .container .left-content .background {
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
+@media (min-width: 1440px) {
+  #call-to-action .container .left-content {
+    display: block;
+    position: relative;
+  }
+  #call-to-action .container .left-content .background {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+  }
+  #call-to-action .container .left-content .portrait {
+    position: relative;
+    z-index: 2;
+  }
 }
-#call-to-action .container .left-content .portrait {
-  position: relative;
-  z-index: 2;
+#call-to-action .container .right-content {
+  margin: 0 auto;
 }
 #call-to-action .container .right-content .heading {
   margin-bottom: 2rem;
@@ -1123,13 +1132,19 @@ footer .container {
   position: relative;
 }
 #project-page .container .content .project-card .img-container {
-  object-fit: cover;
-  object-position: top;
-  height: fit-content;
+  display: none;
 }
-#project-page .container .content .project-card .img-container img {
-  width: 370px;
-  height: 200px;
+@media (min-width: 1440px) {
+  #project-page .container .content .project-card .img-container {
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    height: fit-content;
+  }
+  #project-page .container .content .project-card .img-container img {
+    width: 370px;
+    height: 200px;
+  }
 }
 #project-page .container .content .project-card .content-container {
   display: flex;
@@ -1211,9 +1226,15 @@ footer .container {
   margin: 50px 0 50px 0;
 }
 .project-details .container {
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  grid-template-areas: "content aside";
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media (min-width: 1440px) {
+  .project-details .container {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-areas: "content aside";
+  }
 }
 .project-details .container .page-content {
   grid-area: content;
@@ -1255,36 +1276,66 @@ footer .container {
   padding: 1rem;
   position: relative;
   width: fit-content;
+  margin-bottom: 10rem;
 }
 .project-details .container .aside-content .recent-projects {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .project-details .container .aside-content .recent-projects {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1440px) {
+  .project-details .container .aside-content .recent-projects {
+    flex-direction: column;
+  }
 }
 .project-details .container .aside-content .recent-projects .project-card {
-  display: grid;
-  grid-template-columns: min-content auto;
-  grid-template-areas: "img content";
-  position: relative;
-  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1440px) {
+  .project-details .container .aside-content .recent-projects .project-card {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-areas: "img content";
+    position: relative;
+    padding-bottom: 10px;
+  }
 }
 .project-details .container .aside-content .recent-projects .project-card .img-container {
-  grid-area: img;
-  object-fit: contain;
-  width: fit-content;
+  display: none;
+}
+@media (min-width: 768px) {
+  .project-details .container .aside-content .recent-projects .project-card .img-container {
+    display: block;
+    grid-area: img;
+    object-fit: contain;
+    width: fit-content;
+  }
 }
 .project-details .container .aside-content .recent-projects .project-card .img-container img {
   width: 130px;
   height: 83px;
 }
 .project-details .container .aside-content .recent-projects .project-card a {
+  display: inline-block;
   text-decoration: none;
-  margin-left: 1rem;
+  width: fit-content;
+}
+@media (min-width: 1440px) {
+  .project-details .container .aside-content .recent-projects .project-card a {
+    margin-left: 1rem;
+  }
 }
 .project-details .container .aside-content .recent-projects .project-card a .content {
   grid-area: content;
   display: flex;
   flex-direction: column;
+  width: fit-content;
 }
 .project-details .container .aside-content .recent-projects .project-card a .content h6 {
   font-size: 14px;

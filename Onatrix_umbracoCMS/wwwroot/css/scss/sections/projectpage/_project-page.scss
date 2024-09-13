@@ -14,7 +14,7 @@
             grid-template-columns: 1fr;
             row-gap: 2.5rem;
             height: fit-content;
-          
+
 
 
             .project-card {
@@ -26,13 +26,17 @@
 
 
                 .img-container {
-                    object-fit: cover;
-                    object-position: top;
-                    height: fit-content;
+                    display: none;
+                    @include desktop {
+                        display: block;
+                        object-fit: cover;
+                        object-position: top;
+                        height: fit-content;
 
-                    img {
-                        width: 370px;
-                        height: 200px;
+                        img {
+                            width: 370px;
+                            height: 200px;
+                        }
                     }
                 }
 
