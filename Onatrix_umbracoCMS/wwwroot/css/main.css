@@ -850,9 +850,10 @@ footer .container {
 
 .pagination {
   margin: 50px auto 50px auto;
+  width: 100%;
 }
 .pagination .container {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   height: max-content;
@@ -958,22 +959,30 @@ footer .container {
 }
 
 #project-page .container {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-areas: "content aside";
   margin-top: 4rem;
+  column-gap: 2.5rem;
 }
 #project-page .container .content {
+  grid-area: content;
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 2rem;
+  row-gap: 2.5rem;
+  height: fit-content;
 }
 #project-page .container .content .project-card {
   display: flex;
   gap: 2rem;
   row-gap: 1rem;
   height: 100%;
+  position: relative;
 }
 #project-page .container .content .project-card .img-container {
   object-fit: cover;
   object-position: top;
+  height: fit-content;
 }
 #project-page .container .content .project-card .img-container img {
   width: 370px;
@@ -995,7 +1004,7 @@ footer .container {
 }
 #project-page .container .content .project-card .content-container .text {
   color: var(--color-default);
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 #project-page .container .content .project-card .content-container .icon-container {
   margin-top: auto;
@@ -1006,6 +1015,53 @@ footer .container {
 }
 #project-page .container .content .project-card .content-container .icon-container i {
   color: var(--color-secondary);
+}
+#project-page .container .content .project-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background-color: var(--color-border-gray);
+}
+#project-page .container .aside-content {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  position: relative;
+  width: fit-content;
+}
+#project-page .container .aside-content .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 10px;
+  min-width: 290px;
+}
+#project-page .container .aside-content .tags .tag {
+  list-style: none;
+  width: fit-content;
+  padding: 0.8rem;
+  border: 1px solid var(--color-border-gray);
+  border-radius: 25%;
+  cursor: pointer;
+}
+#project-page .container .aside-content .tags .tag:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary) !important;
+}
+#project-page .container .aside-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0.5px;
+  background-color: var(--color-border-light);
 }
 
 .project-details {

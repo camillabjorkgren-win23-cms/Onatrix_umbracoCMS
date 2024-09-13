@@ -5,11 +5,26 @@
     Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
 
-	var selection = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))
-    .ChildrenOfType("projectItemTemplate")
+	var selection = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))?
+    .ChildrenOfType("projectItemTemplate")?
     .Where(x => x.IsVisible());
 
 
+
+
+	// var tagsList = new List<string>();
+	// for(var i = 0; i < selectionTags.Count; i++)
+	// {
+	// 	var tags = selectionTags[i].Value<IEnumerable<string>>("tags");
+
+	// 	if (tags != null && tags.Any())
+	// 	{
+	// 		foreach (var tag in tags)
+	// 		{
+	// 			tagsList.Add(tag);
+	// 		}
+	// 	}
+	
 
     var itemsPerPage = 4;
     if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
@@ -53,9 +68,27 @@
                 }
             }
         </div>
-    </div>
+<div class="aside-content">
+        	<div class="headline">
+					<h4>Tags</h4>
+			</div>
+    @if(Model.HasValue("tags"))
+{
+ var tags = Model.Value<IEnumerable<string>>("tags");
+   
 
-    <section class="pagination">
+				<ul class="tags">
+				    @foreach (var tag in tags)
+					{
+						<li class="tag" onClick=>
+							@tag
+						</li>
+					}
+				</ul>
+}
+			
+    </div>
+  <section class="pagination">
         <div class="container">
 
             @if (currentPage > 1)
