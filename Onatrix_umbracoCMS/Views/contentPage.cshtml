@@ -14,3 +14,8 @@
 	@await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
 @await Html.GetBlockGridHtmlAsync(Model.Layout)
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("static/callToAction")
+}
