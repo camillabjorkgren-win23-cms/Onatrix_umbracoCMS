@@ -9,6 +9,9 @@
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
     var componentImage = settings?.Value<IPublishedContent>("callToActionComponentImage").Url() ?? null;
     var portaitImage = settings?.Value<IPublishedContent>("callToActionPortraitImage").Url() ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
 }
  
  <section id="call-to-action" class="call-to-action">
@@ -33,7 +36,7 @@
                                     <h6>Office location</h6>
                                 </div>
                                 <div class="contact-information">
-                                    Klarabergsviadukten 90, 111 52 Stockholm
+                                    @officeLocation
                                 </div>
                             </div>
 
@@ -43,7 +46,7 @@
                                     <h6>Phone number</h6>
                                 </div>
                                 <div class="contact-information">
-                                    +46 8 123 456 75
+                                    @officePhoneNumber
                                 </div>
                             </div>
 
@@ -53,7 +56,7 @@
                                     <h6>E-mail address</h6>
                                 </div>
                                 <div class="contact-information">
-                                    sales@onatrix.com
+                                    @officeEmailAddress
                                 </div>
                             </div>
                         </div>

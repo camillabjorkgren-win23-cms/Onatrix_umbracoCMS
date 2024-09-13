@@ -1,0 +1,58 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+   
+var firstThreeExperts = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("expertList").Take(3);
+
+
+var remainingExperts = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("expertList").Skip(3);
+;
+}
+
+@if (firstThreeExperts != null && remainingExperts != null)
+{
+
+    <div class="image-grid">
+
+<div class="upper-row"> 
+ @foreach (var expert in firstThreeExperts)
+            {
+                var portraitImage = expert?.Content.Value<IPublishedContent>("portraitImage")?.Url();
+                var expertName = expert?.Content.Value<string>("expertsName");
+                var expertRole = expert?.Content.Value<string>("expertsRole"); 
+                              
+        <div class="team-card">
+            <div class="image-container">
+                <img class="team-img" src="@portraitImage" alt="@expertName 's portrait image">
+            </div>
+            <div class="name-title">
+                <h4>@expertName</h4>
+                <p>@expertRole</p>
+            </div>
+        </div>
+                   
+            }
+             </div>
+<div class="lower-row">  
+            @foreach (var expert in remainingExperts)
+            {
+                  var portraitImage = expert?.Content.Value<IPublishedContent>("portraitImage")?.Url();
+                var expertName = expert?.Content.Value<string>("expertsName");
+                var expertRole = expert?.Content.Value<string>("expertsRole"); 
+                             
+        <div class="team-card">
+            <div class="image-container">
+                <img class="team-img" src="@portraitImage" alt="@expertName 's portrait image">
+            </div>
+            <div class="name-title">
+                <h4>@expertName</h4>
+                <p>@expertRole</p>
+            </div>
+        </div>
+                   
+            }
+             </div>
+
+    </div>
+}
