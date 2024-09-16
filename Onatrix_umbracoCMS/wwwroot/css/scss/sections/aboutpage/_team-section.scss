@@ -20,7 +20,6 @@
             display: grid;
             grid-template-columns: 1fr;
 
-
             @include tablet {
                 grid-template-columns: 1fr 1fr;
             }
@@ -30,11 +29,8 @@
                 row-gap: 1rem;
             }
 
-
             .upper-row {
                 margin: 0 auto;
-
-
 
                 @include desktop {
                     grid-column: span 3;
