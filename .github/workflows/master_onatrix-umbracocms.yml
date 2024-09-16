@@ -21,9 +21,6 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Change directory to solution folder
-        run: cd CMS/Inlämningsuppgift/Onatrix_umbracoCMS
-
       - name: Build with dotnet
         run: dotnet build Onatrix_umbracoCMS.sln --configuration Release
 
