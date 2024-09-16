@@ -910,7 +910,7 @@ footer .container {
 @media (min-width: 1440px) {
   #our-experts .container .image-grid {
     grid-template-rows: auto;
-    row-gap: 2rem;
+    row-gap: 1rem;
   }
 }
 #our-experts .container .image-grid .upper-row {
@@ -921,6 +921,8 @@ footer .container {
     grid-column: span 3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+    column-gap: 1rem;
   }
 }
 #our-experts .container .image-grid .lower-row {
@@ -931,11 +933,14 @@ footer .container {
     grid-column: span 4;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
   }
 }
 #our-experts .container .image-grid .team-card {
   width: fit-content;
   border: 1px solid hsla(0deg, 0%, 0%, 0.1);
+  margin-bottom: 1rem;
 }
 #our-experts .container .image-grid .team-card .image-container {
   width: fit-content;
