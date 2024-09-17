@@ -1,0 +1,36 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var uniqueName = Model?.Content.Value<string>("uniqueName");
+    var errorMessage = Model?.Content.Value<string>("errorMessage");
+
+    var subjects = @Model.Value<IEnumerable<string>>("subjects");
+}
+
+
+<select name="subjects" class="form-select" id="@uniqueName" required>
+      
+ @if(subjects != null && subjects.Any())
+ {
+     int index = 0;
+        foreach (var subject in subjects)
+        {
+            <option value="@subject" @(index == 0 ? "selected" : "")>@subject</option>
+            index++;
+        }
+ }
+ else 
+ {
+     <option value="">No subjects available</option>
+ }
+ 
+</select>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <span class="form-select-error">@errorMessage</span>
+}
+        
+    
