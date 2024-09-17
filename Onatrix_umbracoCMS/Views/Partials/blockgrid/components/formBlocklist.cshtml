@@ -12,17 +12,23 @@
         @foreach (var block in formBlocks)
         {
             var blockType = block.Content.ContentType.Alias;
+                   
+            var uniqueName = block.Content.Value<string>("uniqueName");
+            var labelText = block.Content.Value<string>("labelText");
+            var placeholderText = block.Content.Value<string>("placeholderText");
+            var inputType = block.Content.Value<string>("inputType");
+            var isRequired = block.Content.Value<bool>("isRequired");
+            var errorMessage = block.Content.Value<string>("errorMessage");
 
+            var buttonText = block.Content.Value<string>("buttonText");
+            var buttonType = block.Content.Value<string>("buttonType");
+     
+            var subjects = block.Content.Value<IEnumerable<string>>("subjects");
+            
+            
             switch (blockType)
             {
-                case "inputText":
-                    var uniqueName = block.Content.Value<string>("uniqueName");
-                    var labelText = block.Content.Value<string>("labelText");
-                    var placeholderText = block.Content.Value<string>("placeholderText");
-                    var inputType = block.Content.Value<string>("inputType");
-                    var isRequired = block.Content.Value<bool>("isRequired");
-                    var errorMessage = block.Content.Value<string>("errorMessage");
-
+                case "inputText":                   
                     <div id="_@uniqueName" class="form-input-group">
                         <label class="form-label" for="@uniqueName">@labelText</label>
                         <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-input" @(isRequired ? "required" : "")>
@@ -35,13 +41,6 @@
                     break;
 
                 case "inputPassword":
-                    uniqueName = block.Content.Value<string>("uniqueName");
-                    labelText = block.Content.Value<string>("labelText");
-                    placeholderText = block.Content.Value<string>("placeholderText");
-                    inputType = "password";
-                    isRequired = block.Content.Value<bool>("isRequired");
-                    errorMessage = block.Content.Value<string>("errorMessage");
-
                     <div id="_@uniqueName" class="form-input-group">
                         <label class="form-label" for="@uniqueName">@labelText</label>
                         <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-input" @(isRequired ? "required" : "")>
@@ -54,12 +53,6 @@
                     break;
 
                 case "inputTextArea":
-                    uniqueName = block.Content.Value<string>("uniqueName");
-                    labelText = block.Content.Value<string>("labelText");
-                    placeholderText = block.Content.Value<string>("placeholderText");
-                    isRequired = block.Content.Value<bool>("isRequired");
-                    errorMessage = block.Content.Value<string>("errorMessage");
-
                     <div id="_@uniqueName" class="form-input-group">
                         <label class="form-label" for="@uniqueName">@labelText</label>
                         <textarea id="@uniqueName" name="@uniqueName" placeholder="@placeholderText" class="form-textarea" @(isRequired ? "required" : "")>@ViewData[uniqueName]</textarea>
@@ -72,24 +65,15 @@
                     break;
 
                 case "formButton":
-                    var buttonText = block.Content.Value<string>("buttonText");
-                    var buttonType = block.Content.Value<string>("buttonType");
-
                     <div id="_@buttonText" class="form-input-group">
                         <button type="@buttonType" class="form-button btn-submit">@buttonText</button>
                     </div>
                     break;
 
                 case "subjectList":
-                    uniqueName = block.Content.Value<string>("uniqueName");
-                    errorMessage = block.Content.Value<string>("errorMessage");
-
-                    var subjects = block.Content.Value<IEnumerable<string>>("subjects");
-
                     <div class="form-group">
-                        <label for="@uniqueName">Subject</label>
-                        <select name="subjects" class="form-select" id="@uniqueName" required>
-                            @if (subjects != null && subjects.Any())
+                        <select name="subject" class="form-select" id="@uniqueName" required>
+                            @if (subjects != null)
                             {
                                 int index = 0;
                                 foreach (var subject in subjects)
