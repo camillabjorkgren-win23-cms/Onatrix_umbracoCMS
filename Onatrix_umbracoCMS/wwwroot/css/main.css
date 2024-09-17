@@ -36,6 +36,39 @@
   color: var(--color-secondary);
 }
 
+#home {
+  position: absolute;
+  top: -250px;
+  z-index: 5;
+  background-color: var(--color-light);
+  box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+}
+#home .headline {
+  background-color: var(--color-primary);
+  padding: 2rem;
+  width: 100%;
+}
+#home .headline h3 {
+  color: var(--color-accent);
+}
+#home .preamble {
+  padding: 2rem 2rem 0 2rem;
+  font-style: italic;
+}
+#home .preamble ~ * {
+  padding: 0 2rem 2rem 2rem;
+}
+#home form > * {
+  margin-top: 2rem;
+  height: fit-content;
+}
+#home span {
+  display: none;
+}
+#home .form-button {
+  width: 100%;
+}
+
 .btn-dark, .btn-primary, .btn-secondary, .btn-accent, .btn-gray, .btn-light {
   display: inline-block;
   cursor: pointer;
@@ -388,6 +421,9 @@ footer .container {
 }
 #about-us .container .content .image-container {
   margin-top: 1rem;
+}
+#about-us .container .umb-block-grid__area[data-area-alias=right] {
+  margin-left: 2rem;
 }
 
 #our-services {

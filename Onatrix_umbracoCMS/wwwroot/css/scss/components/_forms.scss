@@ -1,0 +1,40 @@
+#home {
+    position: absolute;
+    top: -250px;
+    z-index: 5;
+    background-color: var(--color-light);
+    @include shadow-s;
+
+
+    .headline {
+        background-color: var(--color-primary);
+        padding: 2rem;
+        width: 100%;
+
+        h3 {
+            color: var(--color-accent);
+        }
+    }
+
+    .preamble {
+        padding: 2rem 2rem 0 2rem;
+        font-style: italic;
+    }
+
+    .preamble ~ * {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    form > * {
+        margin-top: 2rem;
+        height: fit-content;
+    }
+
+    span {
+        display: none;
+    }
+
+    .form-button {
+        width: 100%;
+    }
+}
