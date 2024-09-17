@@ -12,6 +12,7 @@
         width: 100%;
 
         h3 {
+            font-size: 40px;
             color: var(--color-accent);
         }
     }
@@ -40,18 +41,19 @@
 }
 
 #Contact {
+    @include shadow-l;
     margin: 0 auto;
     position: absolute;
-    top: -450px;
+    top: -500px;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--color-light);
-    @include shadow-s;
-    width: 100%; 
+    width: 100%;
     max-width: 1200px;
 
     .headline {
         padding: 2rem;
+        text-align: center;
 
         h3 {
             color: var(--color-primary);
@@ -61,6 +63,9 @@
     .preamble {
         padding: 2rem 2rem 0 2rem;
         font-style: italic;
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
     }
 
     .preamble ~ * {
