@@ -38,3 +38,68 @@
         width: 100%;
     }
 }
+
+#Contact {
+    margin: 0 auto;
+    position: absolute;
+    top: -450px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-light);
+    @include shadow-s;
+    width: 100%; 
+    max-width: 1200px;
+
+    .headline {
+        padding: 2rem;
+
+        h3 {
+            color: var(--color-primary);
+        }
+    }
+
+    .preamble {
+        padding: 2rem 2rem 0 2rem;
+        font-style: italic;
+    }
+
+    .preamble ~ * {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    form {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "name phone" "email subject" "button button";
+        column-gap: 1rem;
+        row-gap: 1rem;
+
+        #_Name {
+            grid-area: name;
+        }
+
+        #_phone {
+            grid-area: phone;
+        }
+
+        #_Email {
+            grid-area: email;
+        }
+
+        #subject {
+            grid-area: subject;
+        }
+
+        #_Submit {
+            grid-area: button;
+            width: fit-content;
+            grid-column: span 2;
+            margin: 0 auto;
+        }
+
+        span {
+            display: none;
+        }
+    }
+}

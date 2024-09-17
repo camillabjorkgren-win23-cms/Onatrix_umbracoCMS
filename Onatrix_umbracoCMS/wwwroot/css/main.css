@@ -69,6 +69,60 @@
   width: 100%;
 }
 
+#Contact {
+  margin: 0 auto;
+  position: absolute;
+  top: -450px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-light);
+  box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+  width: 100%;
+  max-width: 1200px;
+}
+#Contact .headline {
+  padding: 2rem;
+}
+#Contact .headline h3 {
+  color: var(--color-primary);
+}
+#Contact .preamble {
+  padding: 2rem 2rem 0 2rem;
+  font-style: italic;
+}
+#Contact .preamble ~ * {
+  padding: 0 2rem 2rem 2rem;
+}
+#Contact form {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name phone" "email subject" "button button";
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+#Contact form #_Name {
+  grid-area: name;
+}
+#Contact form #_phone {
+  grid-area: phone;
+}
+#Contact form #_Email {
+  grid-area: email;
+}
+#Contact form #subject {
+  grid-area: subject;
+}
+#Contact form #_Submit {
+  grid-area: button;
+  width: fit-content;
+  grid-column: span 2;
+  margin: 0 auto;
+}
+#Contact form span {
+  display: none;
+}
+
 .btn-dark, .btn-primary, .btn-secondary, .btn-accent, .btn-gray, .btn-light {
   display: inline-block;
   cursor: pointer;
@@ -985,9 +1039,6 @@ footer .container {
   padding: 20px;
 }
 
-#call-to-action {
-  background-color: var(--color-gray);
-}
 #call-to-action .container {
   display: flex;
   padding-top: 35px;
@@ -1423,4 +1474,34 @@ footer .container {
   height: 100%;
   width: 0.5px;
   background-color: var(--color-border-light);
+}
+
+#contact-us .embedded {
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+#contact-us .container .image-slider {
+  width: fit-content;
+  margin: 0 auto;
+}
+#contact-us .container .image-slider .slides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  #contact-us .container .image-slider .slides {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1440px) {
+  #contact-us .container .image-slider .slides {
+    display: flex;
+    gap: 5rem;
+  }
 }

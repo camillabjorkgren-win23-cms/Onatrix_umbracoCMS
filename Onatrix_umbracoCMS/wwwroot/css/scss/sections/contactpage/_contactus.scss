@@ -1,0 +1,36 @@
+#contact-us {
+    .embedded {
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .container {
+
+        
+
+        .image-slider {
+            width: fit-content;
+            margin: 0 auto;
+
+            .slides {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
+                justify-content: center;
+                align-items: center;
+                width: fit-content;
+                margin: 0 auto;
+
+                @include tablet {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+
+                @include desktop {
+                    display: flex;
+                    gap: 5rem;
+                }
+            }
+        }
+    }
+}

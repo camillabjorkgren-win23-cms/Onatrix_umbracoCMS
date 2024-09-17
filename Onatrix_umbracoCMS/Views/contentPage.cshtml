@@ -13,9 +13,14 @@
 {
 	@await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
+
+@if (ViewBag.Title == "Contact Us"){
+	@await Html.PartialAsync("static/callToAction")
+}
+
 @await Html.GetBlockGridHtmlAsync(Model.Layout)
 
-@if (!string.IsNullOrEmpty(ViewBag.Title))
+@if (!string.IsNullOrEmpty(ViewBag.Title) && (ViewBag.Title != "Contact Us"))
 {
 	@await Html.PartialAsync("static/callToAction")
 }
