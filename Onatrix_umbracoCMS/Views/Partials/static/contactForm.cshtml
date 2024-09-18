@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+
+<section id="service" class="contactform">
+   
+<div class="form-content container">
+    <div class="headline">
+        <h3>Have a question?</h3>
+    </div>
+   
+    <form onsubmit="handleContactFormSubmit(event)" novalidate>
+         <div id="_name" class="form-input-group">
+                <input id="name" name="name" type="text" placeholder="Name" value="" class="form-control" required>      
+                    <span class="form-input-error">You must enter your name</span>
+            </div>
+            <div id="_email" class="form-input-group">
+                <input id="email" name="email" type="email" placeholder="Email" value="" class="form-control" required pattern="*">      
+                    <span class="form-input-error">You must enter a valid email</span>
+            </div>
+            <div id="_message" class="form-input-group">
+                <textarea id="message" name="message" placeholder="Question" class="form-control" required></textarea>
+                    <span class="form-input-error">You must enter a question</span>   
+                </div>
+            <div id="_submit" class="form-input-group">
+                <button type="submit" class="form-button btn btn-primary">Submit</button>
+            </div>
+
+    </form>
+</div>
+</section>
