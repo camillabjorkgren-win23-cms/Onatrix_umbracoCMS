@@ -10,13 +10,15 @@
     </div>
    
     <form onsubmit="handleContactFormSubmit(event)" novalidate>
-         <div id="_name" class="form-input-group">
-                <input id="name" name="name" type="text" placeholder="Name" value="" class="form-control" required>      
-                    <span class="form-input-error">You must enter your name</span>
-            </div>
-            <div id="_email" class="form-input-group">
-                <input id="email" name="email" type="email" placeholder="Email" value="" class="form-control" required pattern="*">      
-                    <span class="form-input-error">You must enter a valid email</span>
+        <div class="flex">
+            <div id="_name" class="form-input-group">
+                    <input id="name" name="name" type="text" placeholder="Name" value="" class="form-control" required>      
+                        <span class="form-input-error">You must enter your name</span>
+                </div>
+                <div id="_email" class="form-input-group">
+                    <input id="email" name="email" type="email" placeholder="Email" value="" class="form-control" required pattern="*">      
+                        <span class="form-input-error">You must enter a valid email</span>
+                </div>
             </div>
             <div id="_message" class="form-input-group">
                 <textarea id="message" name="message" placeholder="Question" class="form-control" required></textarea>

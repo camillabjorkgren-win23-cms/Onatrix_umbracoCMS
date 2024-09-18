@@ -128,6 +128,35 @@
   display: none;
 }
 
+#service .container {
+  padding: 5rem;
+}
+#service .container .headline {
+  margin-bottom: 1.5rem;
+}
+#service .container .headline h3 {
+  color: var(--color-primary);
+}
+#service .container form .flex {
+  display: flex;
+  column-gap: 2rem;
+}
+#service .container form .flex #_name {
+  flex: 1;
+}
+#service .container form .flex #_email {
+  flex: 1;
+}
+#service .container form #_message {
+  margin-top: 1.5rem;
+}
+#service .container form #message {
+  height: 200px;
+}
+#service .container form #_submit {
+  margin-top: 2rem;
+}
+
 .btn-dark, .btn-primary, .btn-secondary, .btn-accent, .btn-gray, .btn-light {
   display: inline-block;
   cursor: pointer;
@@ -1166,18 +1195,25 @@ footer .container {
   margin: 50px 0 50px 0;
 }
 .service-details .container {
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-template-areas: "aside content";
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1440px) {
+  .service-details .container {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-areas: "aside content";
+  }
 }
 .service-details .container .aside-content {
   grid-area: aside;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem;
+  padding: 0 2rem 1rem 2rem;
   position: relative;
   min-height: 200px;
+  margin-bottom: 2rem;
 }
 .service-details .container .aside-content .a:hover {
   color: var(--color-secondary) !important;
@@ -1188,16 +1224,32 @@ footer .container {
   height: min-content;
 }
 .service-details .container .aside-content .image-container img {
-  width: 230px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .service-details .container .aside-content .image-container img {
+    display: block;
+    width: 230px;
+  }
 }
 .service-details .container .aside-content::after {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 0.5px;
+  bottom: 0;
+  left: 0;
+  height: 0.5px;
+  width: 100%;
   background-color: var(--color-border-light);
+}
+@media (min-width: 1440px) {
+  .service-details .container .aside-content::after {
+    height: 100%;
+    width: 0.5px;
+    top: 0;
+    right: 0;
+    left: unset;
+    bottom: unset;
+  }
 }
 .service-details .container .page-content {
   grid-area: content;
