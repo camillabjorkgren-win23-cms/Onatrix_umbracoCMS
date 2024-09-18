@@ -37,11 +37,15 @@
 }
 
 #home {
-  position: absolute;
-  top: -250px;
-  z-index: 5;
   background-color: var(--color-light);
   box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+}
+@media (min-width: 1440px) {
+  #home {
+    position: absolute;
+    top: -250px;
+    z-index: 5;
+  }
 }
 #home .headline {
   background-color: var(--color-primary);
@@ -599,7 +603,7 @@ footer .container {
 #about-us .container {
   margin-top: 70px;
   margin-bottom: 70px;
-  padding-left: 40px;
+  padding: 0 2rem 0 2rem;
 }
 #about-us .container .content {
   width: 60%;
@@ -607,8 +611,10 @@ footer .container {
 #about-us .container .content .image-container {
   margin-top: 1rem;
 }
-#about-us .container .umb-block-grid__area[data-area-alias=right] {
-  margin-left: 2rem;
+@media (min-width: 1440px) {
+  #about-us .container .umb-block-grid__area[data-area-alias=right] {
+    margin-left: 2rem;
+  }
 }
 
 #our-services {

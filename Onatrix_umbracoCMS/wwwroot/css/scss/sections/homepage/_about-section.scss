@@ -2,9 +2,7 @@
     .container {
         margin-top: 70px;
         margin-bottom: 70px;
-        padding-left: 40px;
-
-
+        padding: 0 2rem 0 2rem;
 
         .content {
             width: 60%;
@@ -12,12 +10,13 @@
             .image-container {
                 margin-top: 1rem;
             }
-
-            
         }
 
-        .umb-block-grid__area[data-area-alias="right"]{
-            margin-left: 2rem;
+        .umb-block-grid__area[data-area-alias="right"] {
+
+            @include desktop {
+                margin-left: 2rem;
+            }
         }
     }
 }
