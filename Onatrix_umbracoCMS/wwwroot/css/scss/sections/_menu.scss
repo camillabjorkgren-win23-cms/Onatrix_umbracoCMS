@@ -17,11 +17,18 @@
             display: flex;
             margin: auto 0;
 
-            a {
+            .social-item {
                 color: var(--color-light);
                 border-left: 0.1px solid var(--color-border-light-transparent);
                 border-right: 0.1px solid var(--color-border-light-transparent);
                 padding: 15px;
+
+                &:hover {
+                    background-color: var(--color-light);
+                    color: var(--color-dark);
+
+                    transition:ease-out 300ms;
+                }
             }
         }
     }
