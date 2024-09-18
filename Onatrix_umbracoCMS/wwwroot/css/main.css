@@ -326,6 +326,91 @@ footer .container {
   padding: 15px;
 }
 
+/*
+.navbar {
+    .container {
+        display: grid;
+        padding-bottom: 20px;
+        padding-top: 15px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "logo search mobile" "mobile-menu mobile-menu mobile-menu";
+        width: 100%;
+        row-gap: 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+
+
+        @include tablet {
+            display: flex;
+        }
+
+        .logo-img {
+            grid-area: logo;
+            width: fit-content;
+        }
+
+        .btn-menu {
+            display: block;
+            grid-area: mobile;
+            justify-self: center;
+
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            grid-area: mobile-menu;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: var(--color-accent);
+            padding: 35px;
+            border-radius: 5px;
+            text-align: center;
+
+
+
+            @include tablet {
+                display: none;
+            }
+
+            ul {
+                text-decoration: none;
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+        .menu {
+            display: none;
+
+            @include tablet {
+                display: block;
+                @include text;
+                font-weight: 600;
+                display: flex;
+                width: 50%;
+                justify-content: space-around;
+            }
+
+            .active {
+                color: var(--color-secondary);
+            }
+        }
+
+        .search {
+            grid-area: search;
+        }
+    }
+}
+*/
 .navbar .container {
   display: grid;
   padding-bottom: 20px;
@@ -336,11 +421,11 @@ footer .container {
   width: 100%;
   row-gap: 0.5rem;
   align-items: center;
-  justify-content: space-between;
 }
 @media (min-width: 768px) {
   .navbar .container {
     display: flex;
+    justify-content: center;
   }
 }
 .navbar .container .logo-img {
@@ -361,6 +446,7 @@ footer .container {
   grid-area: mobile-menu;
   display: flex;
   justify-content: center;
+  grid-area: mobile-menu;
   width: 100%;
   background-color: var(--color-accent);
   padding: 35px;
@@ -380,26 +466,37 @@ footer .container {
 .navbar .container .mobile-menu ul li {
   margin-top: 1rem;
 }
-.navbar .container .menu {
+.navbar .container .main-menu {
+  text-decoration: none;
+  list-style: none;
   display: none;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
 }
 @media (min-width: 768px) {
-  .navbar .container .menu {
-    display: block;
+  .navbar .container .main-menu {
+    margin-left: 3rem;
+    display: flex;
+    gap: 3rem;
+    flex: 1;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-weight: 600;
-    display: flex;
     width: 50%;
     justify-content: space-around;
   }
 }
-.navbar .container .menu .active {
-  color: var(--color-secondary);
+@media (min-width: 1440px) {
+  .navbar .container .main-menu {
+    margin-left: 20rem;
+    gap: 5rem;
+  }
 }
-.navbar .container .search {
+.navbar .container .main-menu .search-link {
   grid-area: search;
+  margin-left: auto;
 }
 
 #hero-slider {

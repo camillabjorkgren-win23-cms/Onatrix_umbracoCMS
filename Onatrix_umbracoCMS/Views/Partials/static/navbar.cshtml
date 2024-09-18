@@ -21,7 +21,42 @@
 }
 
 
+<nav class="navbar" aria-label="main-navigation" class="main-navigation">
 
+                <div class="container">
+                      @if (logoImg != null)
+        {
+                    <a class="logo-img" href="/">
+                        <img src="@logoImg" alt="@siteName">
+                    </a>
+        }
+
+                    <button class="btn-menu" aria-label="toggle open main menu" aria-controls="main-menu" aria-expanded="false">
+                        <i class="fa-regular fa-bars" aria-hidden="true"></i>
+                    </button>
+
+                    <ul class="main-menu">
+                         @if (selection?.Length > 0)
+            {
+                @foreach (var item in selection)
+                    {
+                        <li><a href="@item.Url(PublishedUrlProvider)" title="@item.Name" class="@(item.IsAncestorOrSelf(Model) ? "nav-link active" : "nav-link")">@item.Name</a></li>
+                    }
+                    <li class="search-link">
+                            <a href="/contact" class="nav-link">
+                                <span class="visually-hidden">Search</span>
+                                <i class="fa-regular fa-magnifying-glass" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                   
+          
+            }
+                 </ul>
+                </div>
+              </nav>
+                        
+
+<!-- 
 <section class="navbar">
     <div class="container">
         @if (logoImg != null)
@@ -45,4 +80,4 @@
             <i class="far fa-bars"></i>
         </button>
     </div>
-</section>
+</section> -->
