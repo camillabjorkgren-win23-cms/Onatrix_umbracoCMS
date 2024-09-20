@@ -15,114 +15,125 @@
     <div class="headline">
         <h3>@headline</h3>
     </div>
-     @if(preamble != null){
+    @if (preamble != null)
+    {
         <div class="preamble">
             <p>@preamble</p>
         </div>
     }
-   
+
 
 
     @if (formBlocks != null && formBlocks.Any())
     {
-        <form onsubmit="handleContactFormSubmit(event)" novalidate>
-            @foreach (var block in formBlocks)
+        @if (TempData["success"] != null)
+        {
+            <div class="success-message">@TempData["Success"]</div>
+        }
+        else
+        {
+            @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
             {
-                var blockType = block.Content.ContentType.Alias;
-                    
-                var uniqueName = block.Content.Value<string>("uniqueName");
-                var labelText = block.Content.Value<string>("labelText");
-                var placeholderText = block.Content.Value<string>("placeholderText");
-                var inputType = block.Content.Value<string>("inputType");
-                var isRequired = block.Content.Value<bool>("isRequired");
-                var errorMessage = block.Content.Value<string>("errorMessage");
-                var buttonLinkColor = block.Content?.Value<ColorPickerValueConverter.PickedColor>("buttonColor")?.Label.ToLower() ?? null;
-                
-                var buttonText = block.Content.Value<string>("buttonText");
-                var buttonType = block.Content.Value<string>("buttonType");
-        
-                var subjects = block.Content.Value<IEnumerable<string>>("subjects");
-                
-                
-                switch (blockType)
-                {
-                    case "inputText":                   
-                        <div id="_@uniqueName" class="form-input-group">
-                            <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-control" @(isRequired ? "required" : "")>
+                <div class="form">
+                    @foreach (var block in formBlocks)
+                    {
+                        var blockType = block.Content.ContentType.Alias;
 
-                            @if (isRequired)
-                            {
-                                <span class="form-input-error">@errorMessage</span>
-                            }
-                        </div>
-                        break;
+                        var uniqueName = block.Content.Value<string>("uniqueName");
+                        var labelText = block.Content.Value<string>("labelText");
+                        var placeholderText = block.Content.Value<string>("placeholderText");
+                        var inputType = block.Content.Value<string>("inputType");
+                        var isRequired = block.Content.Value<bool>("isRequired");
+                        var errorMessage = block.Content.Value<string>("errorMessage");
+                        var buttonLinkColor = block.Content?.Value<ColorPickerValueConverter.PickedColor>("buttonColor")?.Label.ToLower() ?? null;
 
-                    case "inputPassword":
-                        <div id="_@uniqueName" class="form-input-group">
-                            <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-control" @(isRequired ? "required" : "")>
+                        var buttonText = block.Content.Value<string>("buttonText");
+                        var buttonType = block.Content.Value<string>("buttonType");
 
-                            @if (isRequired)
-                            {
-                                <span class="form-input-error">@errorMessage</span>
-                            }
-                        </div>
-                        break;
+                        var subjects = block.Content.Value<IEnumerable<string>>("subjects");
 
-                    case "inputTextArea":
-                        <div id="_@uniqueName" class="form-input-group">
-                            <textarea id="@uniqueName" name="@uniqueName" placeholder="@placeholderText" class="form-control" @(isRequired ? "required" : "")>@ViewData[uniqueName]</textarea>
 
-                            @if (isRequired)
-                            {
-                                <span class="form-input-error">@errorMessage</span>
-                            }
-                        </div>
-                        break;
+                        switch (blockType)
+                        {
+                            case "inputText":
+                                <div id="_@uniqueName" class="form-input-group">
+                                    <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-control" @(isRequired ? "required" : "")>
 
-                    case "formButton":
-                        <div id="_@buttonText" class="form-input-group">
-                            <button type="@buttonType" class="form-button btn btn-@buttonLinkColor">@buttonText</button>
-                        </div>
-                        break;
-
-                    case "subjectList":
-                        <div class="form-group">
-                            <select name="subject" class="form-select" id="@uniqueName" required>
-                                @if (subjects != null)
-                                {
-                                    int index = 0;
-                                    foreach (var subject in subjects)
+                                    @if (isRequired)
                                     {
-                                        if (index == 0)
+                                        <span class="form-input-error">@errorMessage</span>
+                                    }
+                                </div>
+                                break;
+
+                            case "inputPassword":
+                                <div id="_@uniqueName" class="form-input-group">
+                                    <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-control" @(isRequired ? "required" : "")>
+
+                                    @if (isRequired)
+                                    {
+                                        <span class="form-input-error">@errorMessage</span>
+                                    }
+                                </div>
+                                break;
+
+                            case "inputTextArea":
+                                <div id="_@uniqueName" class="form-input-group">
+                                    <textarea id="@uniqueName" name="@uniqueName" placeholder="@placeholderText" class="form-control" @(isRequired ? "required" : "")>@ViewData[uniqueName]</textarea>
+
+                                    @if (isRequired)
+                                    {
+                                        <span class="form-input-error">@errorMessage</span>
+                                    }
+                                </div>
+                                break;
+
+                            case "formButton":
+                                <div id="_@buttonText" class="form-input-group">
+                                    <button type="@buttonType" class="form-button btn btn-@buttonLinkColor">@buttonText</button>
+                                </div>
+                                break;
+
+                            case "subjectList":
+                                <div class="form-group">
+                                    <select name="subject" class="form-select" id="@uniqueName" required>
+                                        @if (subjects != null)
                                         {
-                                            <option value="@subject" selected>@subject</option>
+                                            int index = 0;
+                                            foreach (var subject in subjects)
+                                            {
+                                                if (index == 0)
+                                                {
+                                                    <option value="@subject" selected>@subject</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@subject">@subject</option>
+                                                }
+                                                index++;
+                                            }
                                         }
                                         else
                                         {
-                                            <option value="@subject">@subject</option>
+                                            <option value="">No subjects available</option>
                                         }
-                                        index++;
+                                    </select>
+
+                                    @if (!string.IsNullOrEmpty(errorMessage))
+                                    {
+                                        <span class="form-select-error">@errorMessage</span>
                                     }
-                                }
-                                else
-                                {
-                                    <option value="">No subjects available</option>
-                                }
-                            </select>
+                                </div>
+                                break;
 
-                            @if (!string.IsNullOrEmpty(errorMessage))
-                            {
-                                <span class="form-select-error">@errorMessage</span>
-                            }
-                        </div>
-                        break;
-
-                    default:
-                        <p>Unknown block type: @blockType</p>
-                        break;
-                }
+                            default:
+                                <p>Unknown block type: @blockType</p>
+                                break;
+                        }
+                    }
+                </div>
             }
-        </form>
+        }
     }
     else
     {

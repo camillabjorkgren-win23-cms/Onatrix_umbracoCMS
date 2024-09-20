@@ -63,7 +63,7 @@
 #home .preamble ~ * {
   padding: 0 2rem 2rem 2rem;
 }
-#home form > * {
+#home .form > * {
   margin-top: 2rem;
   height: fit-content;
 }
@@ -102,7 +102,7 @@
 #Contact .preamble ~ * {
   padding: 0 2rem 2rem 2rem;
 }
-#Contact form {
+#Contact .form {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -110,25 +110,25 @@
   column-gap: 1rem;
   row-gap: 1rem;
 }
-#Contact form #_Name {
+#Contact .form #_Name {
   grid-area: name;
 }
-#Contact form #_phone {
+#Contact .form #_phone {
   grid-area: phone;
 }
-#Contact form #_Email {
+#Contact .form #_Email {
   grid-area: email;
 }
-#Contact form #subject {
+#Contact .form #subject {
   grid-area: subject;
 }
-#Contact form #_Submit {
+#Contact .form #_Submit {
   grid-area: button;
   width: fit-content;
   grid-column: span 2;
   margin: 0 auto;
 }
-#Contact form span {
+#Contact .form span {
   display: none;
 }
 
@@ -141,24 +141,34 @@
 #service .container .headline h3 {
   color: var(--color-primary);
 }
-#service .container form .flex {
+#service .container .form .flex {
   display: flex;
   column-gap: 2rem;
 }
-#service .container form .flex #_name {
+#service .container .form .flex #_name {
   flex: 1;
 }
-#service .container form .flex #_email {
+#service .container .form .flex #_email {
   flex: 1;
 }
-#service .container form #_message {
+#service .container .form #_message {
   margin-top: 1.5rem;
 }
-#service .container form #message {
+#service .container .form #message {
   height: 200px;
 }
-#service .container form #_submit {
+#service .container .form #_submit {
   margin-top: 2rem;
+}
+
+.form-content .success-message {
+  margin-top: 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  padding-top: 3rem !important;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .btn-dark, .btn-primary, .btn-secondary, .btn-accent, .btn-gray, .btn-light {

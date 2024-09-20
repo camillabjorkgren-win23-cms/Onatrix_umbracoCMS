@@ -29,7 +29,7 @@
         padding: 0 2rem 2rem 2rem;
     }
 
-    form > * {
+    .form > * {
         margin-top: 2rem;
         height: fit-content;
     }
@@ -75,7 +75,7 @@
         padding: 0 2rem 2rem 2rem;
     }
 
-    form {
+    .form {
         margin-top: 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -123,7 +123,7 @@
             }
         }
 
-        form {
+        .form {
             .flex {
                 display: flex;
                 column-gap: 2rem;
@@ -148,4 +148,18 @@
             }
         }
     }
+}
+
+.form-content {
+
+        .success-message {
+            margin-top: 2rem;
+            background-color: var(--color-primary);
+            color: var(--color-accent);
+            padding-top: 3rem !important;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    
 }
