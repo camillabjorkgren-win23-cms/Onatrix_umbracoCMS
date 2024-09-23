@@ -9,6 +9,10 @@
     var id = Model?.Content.Value<string>("uniqueName");
     var headline = Model?.Content.Value<string>("headlineText");
     var preamble = Model?.Content.Value<string>("preamble");
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
 }
 
 <div class="form-content" id="@id">
@@ -32,7 +36,7 @@
         }
         else
         {
-            @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+            @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { novalidate = "novalidate"}))
             {
                 <div class="form">
                     @foreach (var block in formBlocks)
@@ -61,18 +65,17 @@
 
                                     @if (isRequired)
                                     {
-                                        <span class="form-input-error">@errorMessage</span>
-                                    }
-                                </div>
-                                break;
+                                        switch (inputType)
+                                        {
+                                            case "text":
+                                             <span class=" @((error_name) ? "form-invalid-input" : "d-none")">@errorMessage</span>
+                                             break;
 
-                            case "inputPassword":
-                                <div id="_@uniqueName" class="form-input-group">
-                                    <input id="@uniqueName" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@ViewData[uniqueName]" class="form-control" @(isRequired ? "required" : "")>
-
-                                    @if (isRequired)
-                                    {
-                                        <span class="form-input-error">@errorMessage</span>
+                                             case "email":
+                                                <span class="@((error_email) ? "form-invalid-input" : "d-none")">@errorMessage</span>
+                                                break;
+                                                
+                                        }                                  
                                     }
                                 </div>
                                 break;
@@ -83,7 +86,7 @@
 
                                     @if (isRequired)
                                     {
-                                        <span class="form-input-error">@errorMessage</span>
+                                        <span class="@((error_message) ? "form-invalid-input" : "d-none" )">@errorMessage</span>
                                     }
                                 </div>
                                 break;

@@ -34,9 +34,6 @@
         height: fit-content;
     }
 
-    span {
-        display: none;
-    }
 
     .form-button {
         width: 100%;
@@ -106,9 +103,6 @@
             margin: 0 auto;
         }
 
-        span {
-            display: none;
-        }
     }
 }
 
@@ -152,14 +146,23 @@
 
 .form-content {
 
-        .success-message {
-            margin-top: 2rem;
-            background-color: var(--color-primary);
-            color: var(--color-accent);
-            padding-top: 3rem !important;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-    
+    .success-message {
+        margin-top: 2rem;
+        background-color: var(--color-primary);
+        color: var(--color-accent);
+        padding-top: 3rem !important;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .form-input-error {
+        color: firebrick;
+    }
+
+
+    .form-invalid-input {
+        display:block;
+        color: firebrick;
+    }
 }

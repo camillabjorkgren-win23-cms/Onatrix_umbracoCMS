@@ -5,7 +5,6 @@
 @{
     bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
     bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
-    bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
     bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
 
 }
@@ -22,25 +21,25 @@
         }
         else
         {
-            @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+            @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { novalidate = "novalidate"}))
             {
                 <div class="form">
                     <div class="flex">
                         <div id="_name" class="form-input-group">
                             <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]" class="form-control" required>
-                            <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You must enter your name</span>
+                            <span class="@((error_name) ? "form-invalid-input" : "d-none")">You must enter your name</span>
                         </div>
                         <div id="_email" class="form-input-group">
                             <input id="email" name="email" type="email" placeholder="Email" value="@ViewData["email"]" class="form-control" required pattern="*">
-                            <span class="form-input-error  @((error_email) ? "form-invalid-input" : null)">You must enter a valid email</span>
+                            <span class="@((error_email) ? "form-invalid-input" : "d-none")">You must enter a valid email</span>
                         </div>
                     </div>
                     <div id="_message" class="form-input-group">
                         <textarea id="message" name="message" placeholder="Question" class="form-control" required>@ViewData["message"]</textarea>
-                        <span class="form-input-error  @((error_message) ? "form-invalid-input" : null)">You must enter a question</span>
+                        <span class="@((error_message) ? "form-invalid-input" : "d-none" )">You must enter a question</span>
                     </div>
                     <div id="_submit" class="form-input-group">
-                        <button type="submit" class="form-button btn btn-primary">Submit</button>
+                        <button type="submit" onclick="handleContactFormSubmit" class="form-button btn btn-primary">Submit</button>
                     </div>
                 </div>
             }

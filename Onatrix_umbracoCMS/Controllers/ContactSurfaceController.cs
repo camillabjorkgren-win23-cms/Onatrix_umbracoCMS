@@ -35,15 +35,13 @@ public class ContactSurfaceController : SurfaceController
 
             ViewData["error_name"] = string.IsNullOrEmpty(form.Name);
             ViewData["error_email"] = string.IsNullOrEmpty(form.Email);
-            ViewData["error_phone"] = string.IsNullOrEmpty(form.Phone);
             ViewData["error_message"] = string.IsNullOrEmpty(form.Message);
-            ViewData["error_subject"] = string.IsNullOrEmpty(form.Subject);
 
             return CurrentUmbracoPage();
         }
        
 
-        var result = await _httpClient.PostAsJsonAsync("http://localhost:7057/api/FormDataSaver",form);
+        var result = await _httpClient.PostAsJsonAsync("https://emailprovider-onatrix.azurewebsites.net/api/FormDataSaver?code=FvkA63ESnBZeOg0EEBdznDsPtgJd9oGYyOnXp-vtMlHlAzFuoQOEAw%3D%3D", form);
         if (result.IsSuccessStatusCode)
         {
             TempData["success"] = "Thank you, form submitted successfully";

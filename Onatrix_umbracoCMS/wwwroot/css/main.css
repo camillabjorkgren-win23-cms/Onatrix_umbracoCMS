@@ -67,9 +67,6 @@
   margin-top: 2rem;
   height: fit-content;
 }
-#home span {
-  display: none;
-}
 #home .form-button {
   width: 100%;
 }
@@ -128,9 +125,6 @@
   grid-column: span 2;
   margin: 0 auto;
 }
-#Contact .form span {
-  display: none;
-}
 
 #service .container {
   padding: 5rem;
@@ -169,6 +163,13 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
+}
+.form-content .form-input-error {
+  color: firebrick;
+}
+.form-content .form-invalid-input {
+  display: block;
+  color: firebrick;
 }
 
 .btn-dark, .btn-primary, .btn-secondary, .btn-accent, .btn-gray, .btn-light {
