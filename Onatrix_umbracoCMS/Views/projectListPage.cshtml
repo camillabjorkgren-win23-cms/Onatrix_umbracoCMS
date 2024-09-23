@@ -3,23 +3,36 @@
 
 @{
     Layout = "mainLayout.cshtml";
+
     ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
 
-	var selection = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))?
+
+
+    var selection = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))?
+
     .ChildrenOfType("projectItemTemplate")?
+
     .Where(x => x.IsVisible());
-	
+
+
+
+
 
     var itemsPerPage = 4;
+
     if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+
         currentPage = 1;
+
     var totalItems = selection?.Count() ?? 0;
+
     var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 
 
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
+
 {
     @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
@@ -30,81 +43,95 @@
             @if (pagedItems != null)
             {
                 @foreach (var item in pagedItems)
+
                 {
+
                     var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+
                     var preamble = item?.Value<string>("preamble") ?? "";
+
                     var date = item?.Value("date") ?? "";
 
-                    
-                        <div class="project-card">
-                            <div class="img-container">
-                                <img src="@image" alt="@item.Name()">
+
+                    <div class="project-card">
+                        <div class="img-container">
+                            <img src="@image" alt="@item.Name()">
+                        </div>
+                        <div class="content-container">
+                            <h4 class="heading">@item.Name()</h4>
+                            <p class="date"><i class="fa-regular fa-calendar-days"></i>@date</p>
+                            <p class="text">@preamble</p>
+                            <div class="icon-container">
+                                <a href="@item.Url()">Read more <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
                             </div>
-                            <div class="content-container">
-                                <h4 class="heading">@item.Name()</h4>  
-                                <p class="date"><i class="fa-regular fa-calendar-days"></i>@date</p>    
-                                <p class="text">@preamble</p>
-                                <div class="icon-container">
-                                    <a href="@item.Url()">Read more <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>          
+                        </div>
+                    </div>
                 }
             }
         </div>
-<div class="aside-content">
-        	<div class="headline">
-					<h4>Tags</h4>
-			</div>
-    @if(Model.HasValue("tags"))
-{
- var tags = Model.Value<IEnumerable<string>>("tags");
-   
-
-				<ul class="tags">
-				    @foreach (var tag in tags)
-					{
-						<li class="tag" onClick=>
-							@tag
-						</li>
-					}
-				</ul>
-}
-			<div class="form-content" id="emailform">
-			@await Html.PartialAsync("static/contactEmailForm")
-			</div>
-    </div>
-  <section class="pagination">
-        <div class="container">
-
-            @if (currentPage > 1)
+        <div class="aside-content">
+            <div class="headline">
+                <h4>Tags</h4>
+            </div>
+            @if (Model.HasValue("tags"))
             {
-                <a href="?page=@(currentPage - 1)" class="change">PREV</a>
-            }
-            else
-            {
-                <span class="change inactive">PREV</span>
-            }
 
-            <ul class="pages">
-                @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+                var tags = Model.Value<IEnumerable<string>>("tags");
+
+
+                <ul class="tags">
+                    @foreach (var tag in tags)
+                    {
+                        <li class="tag" onClick=>
+                            @tag
+                        </li>
+                    }
+                </ul>
+            }
+            <div class="form-content" id="emailform">
+                @await Html.PartialAsync("static/contactEmailForm")
+            </div>
+        </div>
+
+
+        <section class="pagination">
+            <div class="container">
+
+                @if (currentPage > 1)
+
                 {
-                    <li class="@((i == currentPage) ? "number active" : "number")">
-                        <a href="?page=@i">@i</a>
-                    </li>
+                    <a href="?page=@(currentPage - 1)" class="change">PREV</a>
                 }
-            </ul>
 
-            @if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage))
-            {
-                <a class="change" href="?page=@(currentPage + 1)">NEXT</a>
-            }
-            else
-            {
-                <span class="change inactive">NEXT</span>
-            }
-        </div>
-    </section>
+                else
+
+                {
+                    <span class="change inactive">PREV</span>
+                }
+
+                <ul class="pages">
+                    @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+
+                    {
+                        <li class="@((i == currentPage) ? "number active" : "number")">
+                            <a href="?page=@i">@i</a>
+                        </li>
+                    }
+                </ul>
+
+                @if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage))
+
+                {
+                    <a class="change" href="?page=@(currentPage + 1)">NEXT</a>
+                }
+
+                else
+
+                {
+                    <span class="change inactive">NEXT</span>
+                }
+            </div>
+        </section>
 
 </section>
 @await Html.PartialAsync("static/callToAction")

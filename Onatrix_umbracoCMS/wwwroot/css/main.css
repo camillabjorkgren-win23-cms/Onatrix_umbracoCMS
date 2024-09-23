@@ -1295,6 +1295,7 @@ footer .container {
 }
 .pagination .container {
   display: flex !important;
+  flex-direction: row !important;
   justify-content: center;
   align-items: center;
   height: max-content;
@@ -1423,11 +1424,17 @@ footer .container {
 }
 
 #project-page .container {
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  grid-template-areas: "content aside";
-  margin-top: 4rem;
-  column-gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1440px) {
+  #project-page .container {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-areas: "content aside";
+    margin-top: 4rem;
+    column-gap: 2.5rem;
+  }
 }
 #project-page .container .content {
   grid-area: content;
@@ -1435,6 +1442,7 @@ footer .container {
   grid-template-columns: 1fr;
   row-gap: 2.5rem;
   height: fit-content;
+  margin-top: 3rem;
 }
 #project-page .container .content .project-card {
   display: flex;
@@ -1503,6 +1511,7 @@ footer .container {
   padding: 1rem;
   position: relative;
   width: fit-content;
+  margin-top: 3rem;
 }
 #project-page .container .aside-content .tags {
   display: flex;
@@ -1539,7 +1548,7 @@ footer .container {
 }
 .project-details .container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 @media (min-width: 1440px) {
   .project-details .container {

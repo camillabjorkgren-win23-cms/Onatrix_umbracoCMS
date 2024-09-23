@@ -2,11 +2,16 @@
 
 
     .container {
-        display: grid;
-        grid-template-columns: 1fr min-content;
-        grid-template-areas: "content aside";
-        margin-top: 4rem;
-        column-gap: 2.5rem;
+        display: flex;
+        flex-direction: column;
+
+        @include desktop {
+            display: grid;
+            grid-template-columns: 1fr min-content;
+            grid-template-areas: "content aside";
+            margin-top: 4rem;
+            column-gap: 2.5rem;
+        }
 
         .content {
             grid-area: content;
@@ -14,6 +19,7 @@
             grid-template-columns: 1fr;
             row-gap: 2.5rem;
             height: fit-content;
+            margin-top: 3rem;
 
 
 
@@ -27,6 +33,7 @@
 
                 .img-container {
                     display: none;
+
                     @include desktop {
                         display: block;
                         object-fit: cover;
@@ -99,6 +106,9 @@
             padding: 1rem;
             position: relative;
             width: fit-content;
+            margin-top: 3rem;
+
+    
 
             .tags {
                 display: flex;
