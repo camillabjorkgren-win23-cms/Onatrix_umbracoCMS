@@ -172,6 +172,50 @@
   color: firebrick;
 }
 
+#emailform {
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  max-width: 300px;
+  padding: 2em;
+  gap: 2em;
+}
+#emailform .headline h3 {
+  font-size: 1em;
+  color: var(--color-accent);
+}
+#emailform .headline p {
+  margin-top: 1em;
+  color: var(--color-light);
+}
+#emailform .success-message {
+  color: var(--color-light);
+}
+#emailform .form {
+  position: relative;
+}
+#emailform .form #email {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 0.7em;
+}
+#emailform .form .form-button {
+  position: absolute;
+  right: 0;
+  top: 0.2em;
+  background-color: transparent;
+  border: none;
+  z-index: 5;
+  padding-right: 1em;
+  padding-left: 2em;
+}
+#emailform .form .form-button i {
+  font-size: 1em;
+}
+
 .btn-dark, .btn-primary, .btn-secondary, .btn-accent, .btn-gray, .btn-light {
   display: inline-block;
   cursor: pointer;

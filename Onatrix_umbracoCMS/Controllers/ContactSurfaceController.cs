@@ -53,4 +53,29 @@ public class ContactSurfaceController : SurfaceController
             return RedirectToCurrentUmbracoPage();
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> HandleSubmitEmailForm(ContactEmailForm form)
+    {
+        if (!ModelState.IsValid)
+        {
+            ViewData["email"] = form.Email;
+            ViewData["error_email"] = string.IsNullOrEmpty(form.Email);
+
+            return CurrentUmbracoPage();
+        }
+
+
+        var result = await _httpClient.PostAsJsonAsync("http://localhost:7057/api/FormDataSaver", form);
+        if (result.IsSuccessStatusCode)
+        {
+            TempData["successemail"] = "Thank you, email submitted successfully";
+            return RedirectToCurrentUmbracoPage();
+        }
+        else
+        {
+            TempData["failed"] = "Could not send your request, please try again";
+            return RedirectToCurrentUmbracoPage();
+        }
+    }
 }

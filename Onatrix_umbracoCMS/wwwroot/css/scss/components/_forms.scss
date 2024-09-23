@@ -166,3 +166,57 @@
         color: firebrick;
     }
 }
+
+#emailform {
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    max-width: 300px;
+    padding: 2em;
+    gap: 2em;
+
+
+    .headline {
+        h3 {
+            font-size: 1em;
+            color: var(--color-accent);
+        }
+
+        p {
+            margin-top: 1em;
+            color: var(--color-light);
+        }
+    }
+
+    .success-message {
+        color: var(--color-light);
+    }
+
+    .form {
+        position: relative;
+
+        #email {
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-size: 0.7em;
+        }
+
+        .form-button {
+            position: absolute;
+            right: 0;
+            top: 0.2em;
+            background-color: transparent;
+            border: none;
+            z-index: 5;
+            padding-right: 1em;
+            padding-left: 2em;
+
+            i {
+                font-size: 1em;
+            }
+        }
+    }
+}

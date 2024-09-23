@@ -8,22 +8,6 @@
 	var selection = Umbraco.Content(Guid.Parse("b66e2469-e6b6-456d-a6bb-c96212b2f9fc"))?
     .ChildrenOfType("projectItemTemplate")?
     .Where(x => x.IsVisible());
-
-
-
-
-	// var tagsList = new List<string>();
-	// for(var i = 0; i < selectionTags.Count; i++)
-	// {
-	// 	var tags = selectionTags[i].Value<IEnumerable<string>>("tags");
-
-	// 	if (tags != null && tags.Any())
-	// 	{
-	// 		foreach (var tag in tags)
-	// 		{
-	// 			tagsList.Add(tag);
-	// 		}
-	// 	}
 	
 
     var itemsPerPage = 4;
@@ -86,7 +70,9 @@
 					}
 				</ul>
 }
-			
+			<div class="form-content" id="emailform">
+			@await Html.PartialAsync("static/contactEmailForm")
+			</div>
     </div>
   <section class="pagination">
         <div class="container">

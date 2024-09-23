@@ -1,0 +1,34 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+
+@{
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+}
+
+<div class="headline">
+    <h3>How can we help you?</h3>
+    <p>online support 24/7, we are here to help you</p>
+</div>
+@if (TempData["successemail"] != null)
+{
+    <div class="success-message">@TempData["successemail"]</div>
+}
+else
+{
+    @using (Html.BeginUmbracoForm("HandleSubmitEmailForm", "ContactSurface", FormMethod.Post, new { novalidate = "novalidate" }))
+    {
+        <div class="form">
+            <div id="_email" class="form-input-group">
+                <input id="email" name="email" type="email" placeholder="E-mail address" value="@ViewData["email"]" class="form-control" required pattern="*">
+                <span class="@((error_email) ? "form-invalid-input" : "d-none")">You must enter a valid email</span>
+
+            </div>
+
+            <button type="submit" onclick="handleContactFormSubmit" class="form-button"><i class="fa-regular fa-envelope"></i></button>
+        </div>
+
+    }
+
+}
+
