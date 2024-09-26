@@ -390,91 +390,6 @@ footer .container {
   transition: ease-out 300ms;
 }
 
-/*
-.navbar {
-    .container {
-        display: grid;
-        padding-bottom: 20px;
-        padding-top: 15px;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "logo search mobile" "mobile-menu mobile-menu mobile-menu";
-        width: 100%;
-        row-gap: 0.5rem;
-        align-items: center;
-        justify-content: space-between;
-
-
-        @include tablet {
-            display: flex;
-        }
-
-        .logo-img {
-            grid-area: logo;
-            width: fit-content;
-        }
-
-        .btn-menu {
-            display: block;
-            grid-area: mobile;
-            justify-self: center;
-
-
-            @include tablet {
-                display: none;
-            }
-        }
-
-        .mobile-menu {
-            grid-area: mobile-menu;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            background-color: var(--color-accent);
-            padding: 35px;
-            border-radius: 5px;
-            text-align: center;
-
-
-
-            @include tablet {
-                display: none;
-            }
-
-            ul {
-                text-decoration: none;
-                list-style: none;
-                padding: 0;
-
-                li {
-                    margin-top: 1rem;
-                }
-            }
-        }
-
-        .menu {
-            display: none;
-
-            @include tablet {
-                display: block;
-                @include text;
-                font-weight: 600;
-                display: flex;
-                width: 50%;
-                justify-content: space-around;
-            }
-
-            .active {
-                color: var(--color-secondary);
-            }
-        }
-
-        .search {
-            grid-area: search;
-        }
-    }
-}
-*/
 .navbar .container {
   display: grid;
   padding-bottom: 20px;
@@ -505,30 +420,6 @@ footer .container {
   .navbar .container .btn-menu {
     display: none;
   }
-}
-.navbar .container .mobile-menu {
-  grid-area: mobile-menu;
-  display: flex;
-  justify-content: center;
-  grid-area: mobile-menu;
-  width: 100%;
-  background-color: var(--color-accent);
-  padding: 35px;
-  border-radius: 5px;
-  text-align: center;
-}
-@media (min-width: 768px) {
-  .navbar .container .mobile-menu {
-    display: none;
-  }
-}
-.navbar .container .mobile-menu ul {
-  text-decoration: none;
-  list-style: none;
-  padding: 0;
-}
-.navbar .container .mobile-menu ul li {
-  margin-top: 1rem;
 }
 .navbar .container .main-menu {
   text-decoration: none;
@@ -561,6 +452,27 @@ footer .container {
 .navbar .container .main-menu .search-link {
   grid-area: search;
   margin-left: auto;
+}
+.navbar .container .main-menu.show {
+  grid-area: mobile-menu;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: mobile-menu;
+  width: 100%;
+  background-color: var(--color-accent);
+  padding: 35px;
+  border-radius: 5px;
+  text-align: center;
+  gap: 1rem;
+}
+.navbar .container .main-menu.show ul {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}
+.navbar .container .main-menu.show ul li {
+  margin-top: 1rem;
 }
 
 #hero-slider {
@@ -1706,9 +1618,14 @@ footer .container {
 }
 
 #contact-us .embedded {
-  width: fit-content;
+  max-width: 1920px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
+}
+#contact-us .embedded iframe {
+  border: 0;
 }
 #contact-us .container .image-slider {
   width: fit-content;
