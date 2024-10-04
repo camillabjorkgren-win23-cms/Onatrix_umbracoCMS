@@ -108,10 +108,14 @@
 
 #service {
     .container {
-        padding: 5rem;
+        @include tablet {
+            padding: 5rem;
+        }
+
 
         .headline {
             margin-bottom: 1.5rem;
+
             h3 {
                 color: var(--color-primary);
             }
@@ -121,18 +125,20 @@
             .flex {
                 display: flex;
                 column-gap: 2rem;
-                
+
                 #_name {
                     flex: 1;
                 }
+
                 #_email {
                     flex: 1;
-
                 }
             }
+
             #_message {
                 margin-top: 1.5rem;
             }
+
             #message {
                 height: 200px;
             }

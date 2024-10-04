@@ -52,9 +52,11 @@
         position: relative;
         z-index: 2;
         text-align: center;
+        width: fit-content;
 
         .heading {
             h2 {
+                font-size: 2rem;
                 font-weight: 700;
             }
 
@@ -68,6 +70,11 @@
                 margin: 0;
                 padding: 0;
                 column-gap: 1rem;
+                font-size: 0.8rem;
+
+                @include tablet {
+                    font-size: 1rem;
+                }
 
                 li {
                     text-decoration: none;
