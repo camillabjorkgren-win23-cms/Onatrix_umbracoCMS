@@ -85,10 +85,14 @@
             position: relative;
 
             img {
-                width: 60%;
-                margin: 0 auto;
-                position: absolute;
-                top: 0px;
+                width: 280px;
+                @include tablet {
+                    width: 60%;
+                    margin: 0 auto;
+                    position: absolute;
+                    top: 0px;
+                }
+
 
                 @include tablet {
                     top: 50px;

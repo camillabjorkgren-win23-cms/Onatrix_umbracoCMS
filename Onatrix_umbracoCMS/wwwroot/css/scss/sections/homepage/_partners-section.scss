@@ -1,13 +1,16 @@
 #partners {
+
     .container {
-        padding: 80px 0px 80px 0px;
+
 
         .image-slider {
+            width: fit-content;
+            margin: 3rem auto;
 
             .slides {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 5rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
                 justify-content: center;
                 align-items: center;
                 width: fit-content;

@@ -12,6 +12,7 @@
     .container {
         .headline {
             margin-bottom: 2rem;
+
             h2 {
                 font-weight: 700;
             }
@@ -37,6 +38,18 @@
             position: relative;
             width: fit-content;
             margin: 0 auto;
+
+            .image-container {
+                width: fit-content;
+
+                img {
+                    width: 280px;
+
+                    @include tablet {
+                        width: 480px;
+                    }
+                }
+            }
 
             &:hover .content-container {
                 background-color: var(--color-primary);

@@ -10,12 +10,21 @@
         .address {
             color: var(--color-light);
             @include text;
-            padding: 15px;
+            padding: 5px;
+
+            @include tablet {
+                padding: 15px;
+            }
         }
 
         .social-media {
-            display: flex;
-            margin: auto 0;
+            display: none;
+
+            @media (min-width: 450px) {
+                display: flex;
+                margin: auto 0;
+            }
+
 
             .social-item {
                 color: var(--color-light);
@@ -26,8 +35,7 @@
                 &:hover {
                     background-color: var(--color-light);
                     color: var(--color-dark);
-
-                    transition:ease-out 300ms;
+                    transition: ease-out 300ms;
                 }
             }
         }
@@ -35,14 +43,15 @@
 }
 
 .navbar {
+    width: 100%;
     .container {
         display: grid;
         padding-bottom: 20px;
         padding-top: 15px;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
         grid-template-areas: "logo search mobile" "mobile-menu mobile-menu mobile-menu";
-        width: 100%;
+        width: 90%;
         row-gap: 0.5rem;
         align-items: center;
 

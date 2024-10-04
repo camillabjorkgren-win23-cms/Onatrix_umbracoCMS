@@ -14,15 +14,30 @@
 
         .page-content {
             grid-area: content;
-            padding: 0 2rem 0 2rem;
+            width: fit-content;
+
+            @include tablet {
+                padding: 0 2rem 0 2rem;
+            }
 
             h3 {
                 color: var(--color-primary);
             }
 
+            img {
+                width: 280px;
+                height: auto;
+
+                @media (min-width:450px) {
+                    width: auto;
+                }
+            }
+
             .tags-page {
                 display: flex;
                 align-items: center;
+                flex-direction: column;
+                margin-top:2rem;
 
                 .tags {
                     display: flex;
@@ -75,7 +90,7 @@
                     flex-direction: column;
                 }
 
-                
+
 
                 .project-card {
                     display: flex;
